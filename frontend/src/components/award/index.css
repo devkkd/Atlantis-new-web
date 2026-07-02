@@ -1,0 +1,112 @@
+/* Awards Section Styles */
+.awards-section {
+  background: #fffcf5;
+  padding: 3rem 1.5rem 3rem 1.5rem;
+  font-family: 'Cinzel', serif;
+  margin: 0 auto;
+  max-width: 1200px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.awards-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.awards-header-line {
+  flex: 0.2;
+  height: 2px;
+  background: #000000;
+  min-width: 40px;
+  border: none;
+  border-radius: 2px;
+}
+
+.awards-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #181818;
+  margin: 0 1.2rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.awards-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #444;
+  margin: 0 0 2.2rem 0;
+  letter-spacing: 0.02em;
+  font-family: 'Atyp Display', sans-serif;
+}
+
+.awards-logos-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem 2.5rem;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.awards-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 1.1rem 2.2rem;
+  min-width: 120px;
+  min-height: 70px;
+  max-width: 180px;
+  max-height: 90px;
+}
+
+.awards-logo {
+  max-width: 120px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(0.2) contrast(1.1);
+}
+
+@media (max-width: 700px) {
+  .awards-section {
+    padding: 2rem 0.5rem 2rem 0.5rem;
+    border-radius: 8px;
+  }
+  .awards-title {
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+  }
+  .awards-header-row {
+    gap: 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+  .awards-header-line {
+    min-width: 20px;
+  }
+  .awards-logos-row {
+    gap: 1.2rem 1.2rem;
+    max-width: 100vw;
+  }
+  .awards-logo-wrapper {
+    padding: 0.7rem 1.1rem;
+    min-width: 80px;
+    min-height: 40px;
+    max-width: 100px;
+    max-height: 60px;
+  }
+  .awards-logo {
+    max-width: 70px;
+    max-height: 32px;
+  }
+}

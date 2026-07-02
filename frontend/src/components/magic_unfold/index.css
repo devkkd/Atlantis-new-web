@@ -1,0 +1,208 @@
+.magic-section {
+    background: #fffcf5;
+    padding: 5.5rem 2rem 0rem 2rem;
+    font-family: 'Cinzel', serif;
+  }
+
+  .magic-header-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .magic-header-line {
+    flex: 0.3;
+    height: 1.5px;
+    background: #181818;
+    min-width: 60px;
+    border: none;
+  }
+
+  .magic-title-spaced {
+    padding-right: 11rem; /* Adjust as needed */
+  }
+
+  .magic-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #181818;
+    margin: 0 1.5rem 0 1.5rem;
+    letter-spacing: 0.017em;
+  }
+
+  .magic-cta {
+    background: #e1b24b;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 3px;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-inline: auto;
+    font-family: Cinzel;
+  }
+
+  .magic-cta:hover {
+    background: #c99c3b;
+  }
+  
+  .magic-subtitle {
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #181818;
+      margin: 4vh 0 4vh 16vw;
+      letter-spacing: 0.04em;
+  }
+  
+  .magic-description {
+      text-align: left;
+      font-size: 1.1rem;
+      color: #444;
+      margin: 0 0 2.2rem 0;
+      max-width: 1100px;
+      margin-left: 16vw;
+      /* margin-right: auto; */
+      line-height: 1.6;
+      font-family: 'Atyp Display';
+  }
+
+  .magic-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+  }
+  
+  .magic-card-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .magic-card-info {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.1rem 1.2rem 0 1.2rem;
+  }
+  
+  .magic-card-number {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #e1b24b;
+    margin-right: 0.7rem;
+    font-family: Cinzel;
+    display: inline-block;
+  }
+  
+  .magic-card-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #181818;
+    letter-spacing: 0.04em;
+    font-family: Cinzel;
+    display: inline-block;
+  }
+  
+  @media (max-width: 1100px) {
+    .magic-card-img {
+      height: 260px;
+    }
+    .magic-card-title {
+      font-size: 1.1rem;
+    }
+    .magic-card-number {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .magic-section {
+      text-align: center;
+    }
+    .magic-header-row {
+      flex-direction: column;
+      gap: 0.7rem;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .magic-title {
+      font-size: 1.3rem;
+      margin: 0.5rem 0;
+      margin-left: 0;
+      text-align: center;
+      width: 100%;
+      padding-right: 0px;
+    }
+    .magic-cta {
+      margin-inline: auto;
+      display: block;
+    }
+    .magic-subtitle {
+      text-align: center;
+      margin: 2vh 0 2vh 0;
+      width: 100%;
+    }
+    .magic-description {
+      text-align: center;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+  
+
+  .magic-landing-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .magic-video-section {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4vh 0 4vh 0; /* space above and below */
+    background: #fffcf5;
+  }
+
+  .magic-video-wrapper {
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .magic-video {
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 700px) {
+    .magic-video-section {
+      padding: 2vh 0 2vh 0;
+    }
+    .magic-video-wrapper,
+    .magic-video {
+      width: 100vw;
+      height: 30vh;
+    }
+  }

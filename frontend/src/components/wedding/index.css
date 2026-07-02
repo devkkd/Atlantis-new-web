@@ -1,0 +1,355 @@
+.wedding-section {
+  background: #fffcf5;
+  padding: 2.5rem 2rem 3rem 0rem;
+  font-family: 'Cinzel', serif;
+}
+
+.wedding-header-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.wedding-header-line {
+  flex: 0.3;
+  height: 2px;
+  background: #181818;
+  min-width: 60px;
+  border: none;
+}
+
+.wedding-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #181818;
+  margin: 0 1.5rem 0 1.5rem;
+  letter-spacing: 0.02em;
+  padding-left: 2rem;
+}
+
+.wedding-cta {
+  background: #e1b24b;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 3px;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-inline: auto;
+  font-family: Cinzel;
+}
+.wedding-cta:hover {
+  background: #c99c3b;
+}
+
+.wedding-subtitle {
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #181818;
+    margin: 4vh 0 4vh 16vw;
+    letter-spacing: 0.04em;
+    padding-left: 2rem;
+}
+
+.wedding-description {
+    text-align: left;
+    font-size: 1.1rem;
+    color: #444;
+    margin: 0 0 2.2rem 0;
+    max-width: 1100px;
+    margin-left: 16vw;
+    /* margin-right: auto; */
+    line-height: 1.6;
+    font-family: 'Atyp Display';
+    padding-left: 2rem;
+}
+
+.wedding-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  margin-left: 16vw;
+  margin-right: 1vw;
+}
+
+.wedding-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.wedding-card-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.wedding-card-info {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem 0 1.2rem;
+}
+
+.wedding-card-number {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e1b24b;
+  margin-right: 0.7rem;
+  font-family: Cinzel;
+  display: inline-block;
+}
+
+.wedding-card-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #181818;
+  letter-spacing: 0.04em;
+  font-family: Cinzel;
+  display: inline-block;
+}
+
+@media (max-width: 1100px) {
+  .wedding-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wedding-card-img {
+    height: 260px;
+  }
+  .wedding-card-title {
+    font-size: 1.1rem;
+  }
+  .wedding-card-number {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .wedding-section {
+    text-align: center;
+  }
+  .wedding-header-row {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .wedding-title {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+  .wedding-cta {
+    margin-inline: auto;
+    display: none;
+  }
+  .wedding-subtitle {
+    text-align: center;
+    margin: 2vh 0 2vh 0;
+    width: 100%;
+  }
+  .wedding-description {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  .wedding-cards-row {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  .wedding-card {
+    width: 100%;
+    max-width: 350px;
+    max-height: none;
+  }
+  .wedding-card-img {
+    height: 260px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  .wedding-card-info {
+    padding: 0.8rem 1rem 10px 1rem;
+  }
+  .wedding-card-title {
+    font-size: 1rem;
+  }
+  .wedding-card-number {
+    font-size: 1rem;
+  }
+  .manual-wedding-slider {
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2.5rem;
+    background: none;
+    outline: none;
+    padding: 0;
+    touch-action: pan-y;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .manual-slider-track {
+    display: flex;
+    width: 100vw;
+  }
+  .manual-slider-card {
+    min-width: 100vw;
+    max-width: 100vw;
+    flex: 0 0 100vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+  }
+  .wedding-card-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+  }
+  .wedding-card-number {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e1b24b;
+    margin-right: 0.7rem;
+    font-family: Cinzel;
+    display: inline-block;
+  }
+  .wedding-card-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #181818;
+    letter-spacing: 0.04em;
+    font-family: Cinzel;
+    display: inline-block;
+  }
+  .wedding-card-img {
+    margin-bottom: 0.7rem;
+    display: block;
+  }
+  .manual-slider-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.7rem auto 0.5rem auto;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .manual-slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #e1b24b;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .manual-slider-dot.active {
+    opacity: 1;
+    background: #e1b24b;
+  }
+}
+
+/* Mobile Wedding Slider Styles */
+.mobile-wedding-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  max-width: 100vw;
+  height: 260px;
+  position: relative;
+  margin-bottom: 4vh;
+}
+
+.slider-card-wrapper {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .mobile-wedding-slider {
+    height: 260px;
+    width: 100vw;
+    max-width: 100vw;
+    margin-bottom: 4vh;
+  }
+  .slider-card-wrapper {
+    width: 90vw;
+    max-width: 350px;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+  }
+}
+
+/* Marquee Wedding Slider Styles for Mobile */
+@media (max-width: 700px) {
+  .wedding-marquee-row.marquee {
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    margin-bottom: 2.5rem;
+    background: none;
+    outline: none;
+    padding: 0;
+  }
+  .wedding-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: wedding-marquee-scroll 18s linear infinite;
+  }
+  .wedding-marquee-row.marquee:hover .wedding-marquee-track,
+  .wedding-marquee-row.marquee:focus .wedding-marquee-track {
+    animation-play-state: paused;
+  }
+  .wedding-marquee-card {
+    min-width: 90vw;
+    max-width: 90vw;
+    flex: 0 0 90vw;
+    margin-right: 1rem;
+    box-sizing: border-box;
+  }
+}
+
+@keyframes wedding-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

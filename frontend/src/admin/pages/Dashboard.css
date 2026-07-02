@@ -1,0 +1,284 @@
+.dashboard-page {
+
+    width: 100%;
+
+}
+
+.dashboard-header {
+
+    margin-bottom: 35px;
+
+}
+
+.dashboard-header h1 {
+
+    font-size: 34px;
+
+    font-family: "Cinzel", serif;
+
+    color: #222;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+
+}
+
+.dashboard-header p {
+
+    color: #777;
+
+    font-size: 15px;
+
+}
+
+/* Grid */
+
+.dashboard-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
+
+}
+
+/* Card */
+
+.dashboard-card {
+
+    background: #fff;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    text-decoration: none;
+
+    color: #222;
+
+    border: 1px solid #ececec;
+
+    transition: .35s;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    min-height: 210px;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.dashboard-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 5px;
+
+    background: #B8860B;
+
+    transform: scaleX(0);
+
+    transition: .35s;
+
+    transform-origin: left;
+
+}
+
+.dashboard-card:hover::before {
+
+    transform: scaleX(1);
+
+}
+
+.dashboard-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+
+        0 20px 45px rgba(0, 0, 0, .08);
+
+}
+
+.dashboard-card h3 {
+
+    font-size: 24px;
+
+    margin-bottom: 15px;
+
+    font-family: "Cinzel", serif;
+
+    color: #222;
+
+}
+
+.dashboard-card p {
+
+    font-size: 14px;
+
+    line-height: 26px;
+
+    color: #777;
+
+    margin-bottom: 30px;
+
+}
+
+.dashboard-card button {
+
+    width: 140px;
+
+    height: 46px;
+
+    background: #B8860B;
+
+    border: none;
+
+    border-radius: 12px;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.dashboard-card button:hover {
+
+    background: #9a7207;
+
+}
+.menu-toggle{
+
+    display:none;
+
+    position:fixed;
+
+    top:20px;
+
+    left:20px;
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#B8860B;
+
+    color:#fff;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    z-index:1200;
+
+}
+
+/* Mobile Only */
+
+@media(max-width:768px){
+
+    .menu-toggle{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+    }
+
+}
+
+/* Tablet */
+
+@media(max-width:1200px) {
+
+    .dashboard-grid {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+}
+
+/* Small Tablet */
+
+@media(max-width:992px) {
+
+    .dashboard-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .dashboard-card {
+
+        min-height: 190px;
+
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:768px) {
+
+    .dashboard-header h1 {
+
+        font-size: 28px;
+
+    }
+
+    .dashboard-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+    }
+
+    .dashboard-card {
+
+        padding: 22px;
+
+        min-height: auto;
+
+    }
+
+    .dashboard-card h3 {
+
+        font-size: 22px;
+
+    }
+
+    .dashboard-card button {
+
+        width: 100%;
+
+    }
+
+}

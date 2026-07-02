@@ -1,0 +1,363 @@
+.contact2-section {
+  background: #fffcf5;
+  padding: 0;
+  font-family: 'Cinzel';
+  color: #222;
+}
+
+.contact2-content-wrapper {
+  /* padding: 0 5vw; */
+  box-sizing: border-box;
+  text-align: left;
+  /* margin-left: 245px; */
+}
+
+.contact2-content-wrapper-head {
+  /* padding: 0 5vw; */
+  box-sizing: border-box;
+  text-align: left;
+  /* margin-left: 245px; */
+  display: flex;
+  align-items: center;
+}
+
+.contact2-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6vw 0 2vw 0;
+  max-width: 800px;
+  padding: 0 5vw;
+  padding-right: 7vw;
+}
+
+.contact2-line {
+  flex-grow: 1;
+  height: 1.5px;
+  background: #222;
+  border: none;
+  margin: 0 2vw;
+}
+
+.contact2-title {
+  font-family: 'Cinzel';
+  font-size: 3.5vw;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #181818;
+  white-space: nowrap;
+}
+
+.contact2-subtitle {
+  font-family: 'Cinzel';
+  font-size: 1.8vw;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 1vw;
+  color: #181818;
+  text-align: left;
+}
+
+.contact2-description {
+  font-family: 'Atyp Display';
+  font-size: 1.1vw;
+  line-height: 1.6;
+  max-width: 100%;
+  margin: 0 0 3vw 0;
+  color: #555;
+  text-align: left;
+  letter-spacing: normal;
+}
+
+.contact2-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.contact2-group {
+  margin-bottom: 3vw;
+  text-align: left;
+}
+
+.contact2-group-title {
+  font-family: 'Cinzel';
+  font-size: 1.5vw;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 1vw;
+  color: #181818;
+  text-align: left;
+}
+
+.contact2-group-content {
+  font-family: 'Atyp Display';
+  font-size: 1.1vw;
+  line-height: 1.6;
+  color: #555;
+  text-align: left;
+  letter-spacing: normal;
+  margin-bottom: 3vw;
+}
+
+.contact2-social-icons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-top: 1vw;
+}
+
+.social-handle {
+  font-family: 'Atyp Display';
+  font-size: 1.1vw;
+  color: #555;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.contact2-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.contact2-social-icon:hover {
+  transform: scale(1.12);
+}
+
+.contact2-email-link1 {
+  color: #555;
+  text-decoration: none;
+}
+.contact2-email-link1:visited,
+.contact2-email-link1:hover,
+.contact2-email-link1:active {
+  color: #555;
+  text-decoration: none;
+}
+
+.contact2-phone-link1 {
+  color: #555;
+  text-decoration: none;
+}
+.contact2-phone-link1:visited,
+.contact2-phone-link1:hover,
+.contact2-phone-link1:active {
+  color: #555;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .contact2-section {
+    margin: 0;
+  }
+  .contact2-content-wrapper {
+    max-width: 100%;
+    padding: 0 4vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact2-header {
+    margin-top: 8vw;
+    max-width: 100%;
+    padding: 0 4vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact2-subtitle,
+  .contact2-description,
+  .contact2-group,
+  .contact2-group-title,
+  .contact2-group-content,
+  .social-handle {
+    text-align: left;
+  }
+  .contact2-social-icons {
+    justify-content: flex-start;
+  }
+  .contact2-social-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact2-content-wrapper {
+    max-width: 100%;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact2-header {
+    margin-top: 10vw;
+    max-width: 100%;
+    padding: 0 5vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact2-subtitle,
+  .contact2-description,
+  .contact2-group,
+  .contact2-group-title,
+  .contact2-group-content,
+  .social-handle {
+    text-align: left;
+  }
+  .contact2-social-icons {
+    justify-content: flex-start;
+  }
+  /* .contact2-social-icon {
+    width: 24px;
+    height: 24px;
+  } */
+  .contact2-title {
+    font-size: 8vw;
+  }
+  .contact2-subtitle {
+    white-space: nowrap;
+    font-size: 4vw;
+  }
+  .contact2-group-title {
+    font-size: 4vw;
+  }
+  .contact2-group-content {
+    font-size: 3.5vw;
+  }
+  .contact2-description {
+    font-size: 3.5vw;
+  }
+  .social-handle {
+    font-size: 3.5vw;
+  }
+  /* .footer-social-icon svg {
+    width: 28px !important;
+    height: 28px !important;
+  } */
+  .contact2-line {
+    display: none;
+  }
+  .contact2-title {
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-top: 0px;
+  }
+  .form-line {
+    display: none;
+  }
+  .form-title1 {
+    text-align: center;
+    margin-left: 0;
+    margin-top: 8vw;
+    margin-bottom: 2vw;
+    padding-left: 0;
+  }
+  .form-line1 {
+    display: none;
+  }
+  .contact2-content-wrapper,
+  .material {
+    width: 100%;
+    margin-left: 0;
+    /* padding: 0 5vw; */
+    box-sizing: border-box;
+    margin-top: 0;
+  }
+  .contact2-group {
+    margin-bottom: 5vw;
+  }
+  .contact2-social-icons {
+    justify-content: flex-start;
+    padding-left: 0;
+    margin-left: 0;
+  }
+  .block1 {
+    text-align: right;
+    /* padding-left: 5vw; */
+  }
+  .empty {
+    width: 18%;
+    display: none;
+  }
+  .contact2-phone-link1,
+  .contact2-email-link1 {
+    font-size: 3.5vw !important;
+  }
+  .material {
+    margin-left: 10vw;
+  }
+}
+@media (max-width: 1522px) and (min-width: 601px) {
+  .contact2-title {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+}
+
+.line{
+  .form-line {
+    flex-grow: 1;
+    height: 1.5px;
+    background: #ff0000;
+    border: none;
+    margin: 0 2vw;
+  }
+}
+
+.hidden{
+  .form-line {
+    flex-grow: 1;
+    height: 1.5px;
+    background: #fffcf5;
+    border: none;
+    margin: 0 2vw;
+  }
+}
+
+.form-line1 {
+  width: 17vw;
+  height: 1.5px;
+  background: #222;
+  border: none;
+  margin: 0 2vw 0 0;
+}
+
+.form-title1 {
+  font-family: 'Cinzel', serif;
+  font-size: 5vw;
+  font-weight: lighter;
+  /* letter-spacing: 2px; */
+  color: #181818;
+  white-space: normal;
+  word-break: break-word;
+  margin-bottom: 5vh;
+  margin-right: 24vw;
+}
+
+.arrow {
+  width: 21%;
+  padding-left: 1vw;
+  padding-top: 20px;
+}
+
+.text {
+  width: 79%;
+}
+
+.material {
+  width: 79%;
+  /* margin-left: 10vw; */
+}
+
+.empty {
+  width: 21%;
+}
+
+.block1 {
+  display: flex;
+  margin-top: 0;
+}

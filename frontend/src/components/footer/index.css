@@ -1,0 +1,257 @@
+.footer-section {
+  background: #f6e5bc;
+  padding: 0;
+  position: relative;
+  font-family: 'Georgia', serif;
+  color: #222;
+  overflow: hidden;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3vw 2.5vw 2vw 2.5vw;
+  min-height: 340px;
+}
+
+.footer-col {
+  flex: 1;
+}
+.footer-logo-col {
+  display: flex;
+  align-items: flex-start;
+}
+.footer-logo {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+}
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 1.3vw;
+  margin-top: 1vw;
+  margin-left: 2vw;
+}
+.footer-link {
+  cursor: pointer;
+  letter-spacing: 1px;
+  color: #222;
+  font-family: Cinzel;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.footer-link:hover {
+  color: #bfa14a;
+}
+.footer-contact-col {
+  text-align: right;
+  font-size: 1.1vw;
+  font-family: Cinzel;
+  color: #222;
+  margin-top: 0.5vw;
+}
+.footer-contact-title {
+  font-family: Cinzel;
+  font-size: 1.1vw;
+  letter-spacing: 1px;
+  margin-bottom: 0.7vw;
+  text-align: right;
+}
+.footer-contact-desc, .footer-contact-address {
+  margin-bottom: 0.7vw;
+  line-height: 1.5;
+  font-family: Cinzel;
+}
+.footer-contact-phone, .footer-contact-email {
+  margin-bottom: 0.3vw;
+  /* font-size: 1.1vw; */
+  letter-spacing: 1px;
+  font-family: Cinzel;
+  line-height: 1.5vh;
+}
+.footer-contact-link {
+  color: #222;
+  text-decoration: none;
+}
+.footer-contact-link:visited,
+.footer-contact-link:hover,
+.footer-contact-link:active {
+  color: #222;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2vw 2.5vw 0.7vw 2.5vw;
+  font-size: 1vw;
+  font-family: Cinzel;
+  color: #222;
+  background: transparent;
+  z-index: 2;
+  position: relative;
+}
+.footer-bottom-left {
+  letter-spacing: 0.5px;
+  font-family: Cinzel;
+}
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.footer-follow {
+  font-family: Cinzel;
+  font-size: 1.1vw;
+  margin-right: 10px;
+  color: #222;
+}
+.footer-social-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 6px;
+  transition: transform 0.2s;
+}
+.footer-social-icon:last-child {
+  margin-right: 0;
+}
+.footer-social-icon:hover {
+  transform: scale(1.12);
+}
+
+.footer-faded-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2vw;
+  text-align: center;
+  font-size: 3vw;
+  font-family: Cinzel;
+  color: #e2c98a;
+  opacity: 0.5;
+  letter-spacing: 4px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.faded-text-divider {
+  border-top: 1px solid #222;
+  width: 95%;
+  margin: 0vw auto;
+  /* padding-bottom: 4vh; */
+}
+
+@media (max-width: 900px) {
+  .footer-main {
+    flex-direction: column;
+    align-items: center;
+    padding: 6vw 2vw 2vw 2vw;
+    min-height: unset;
+    gap: 3vw;
+  }
+  .footer-logo-col {
+    justify-content: center;
+    margin-bottom: 2vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .footer-links-col {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3vw;
+    margin: 0 0 2vw 0;
+    font-size: 2.2vw;
+    justify-content: center;
+    width: 100%;
+  }
+  .footer-link {
+    min-width: unset;
+    padding: 0 1.5vw;
+    text-align: center;
+  }
+  .footer-contact-col {
+    text-align: center;
+    font-size: 2vw;
+    margin: 0;
+    width: 100%;
+    word-break: break-word;
+  }
+  .footer-contact-title {
+    font-size: 2vw;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1vw;
+    font-size: 2vw;
+    padding: 2vw 2vw 1vw 2vw;
+    text-align: center;
+  }
+  .footer-bottom-left, .footer-bottom-right {
+    width: 100%;
+    justify-content: center;
+  }
+  .footer-follow {
+    font-size: 2vw;
+  }
+  .footer-faded-text {
+    font-size: 6vw;
+    bottom: 1vw;
+    z-index: 0;
+  }
+}
+@media (max-width: 600px) {
+  .footer-main {
+    padding: 10vw 2vw 2vw 2vw;
+    gap: 5vw;
+  }
+  .footer-logo {
+    height: 60px;
+  }
+  .footer-links-col {
+    font-size: 3.5vw;
+    gap: 4vw;
+  }
+  .footer-contact-col, .footer-contact-title, .footer-bottom, .footer-follow {
+    font-size: 3vw;
+  }
+  .footer-faded-text {
+    font-size: 10vw;
+    bottom: 0.5vw;
+    z-index: 0;
+  }
+  .footer-social-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  .footer-contact-link1,
+  .footer-contact-link1 {
+    font-size: 3.5vw !important;
+  }
+}
+
+.block {
+
+  left: 30PX;
+  right: 30PX;
+  bottom: 2vw;
+  text-align: center;
+  font-size: 4.5vw;
+  font-family: Cinzel;
+  color: #B28C47;
+  /* opacity: 0.5; */
+  letter-spacing: 3.5px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}

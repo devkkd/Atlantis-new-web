@@ -1,0 +1,80 @@
+.servicebp-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 60px auto 0 auto;
+    text-align: center;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    color: #222;
+    background: transparent;
+  }
+  
+  .servicebp-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  
+  .servicebp-line {
+    flex-grow: 1;
+    height: 1.5px;
+    background: #222;
+    border: none;
+    margin-right: 2vw;
+  }
+  
+  .servicebp-line-r {
+    flex-grow: 1;
+    height: 1.5px;
+    background: #222;
+    border: none;
+    margin-left: 2vw;
+  }
+  
+  .servicebp-title {
+    font-size: 4vw;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 0;
+    font-family: 'Cinzel';
+  }
+  
+  .servicebp-subtitle {
+    font-size: 1.8vw;
+    font-weight: 400;
+    margin: 0 0 28px 0;
+    letter-spacing: 1px;
+    color: #222;
+    font-family: 'Cinzel';
+  }
+  
+  .servicebp-description {
+    /* font-size: 1.2vw; */
+    color: #222;
+    /* max-width: 800px; */
+    margin: 0 auto;
+    line-height: 1.6;
+    font-family: 'Atyp Display';
+    opacity: 0.85;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 600px) {
+    .servicebp-container {
+      margin-top: 30px;
+      padding: 0 10px;
+    }
+    .servicebp-title {
+      font-size: 2rem;
+    }
+    .servicebp-subtitle {
+      font-size: 1.05rem;
+    }
+    .servicebp-description {
+      font-size: 0.92rem;
+    }
+    .servicebp-line {
+      margin: 0 8px;
+    }
+  }
+  

@@ -1,0 +1,241 @@
+.business-section {
+    background: #fffcf5;
+    padding: 2.5rem 2rem 3rem 2rem;
+    font-family: 'Cinzel', serif;
+  }
+  
+  .business-header-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .business-header-line {
+    flex: 0.3;
+    height: 2px;
+    background: #181818;
+    min-width: 60px;
+    border: none;
+  }
+
+  .business-title-spaced {
+    padding-right: 10rem; /* Adjust as needed */
+  }
+  
+  .business-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #181818;
+    margin: 0 1.5rem 0 1.5rem;
+    letter-spacing: 0.017em;
+  }
+  
+  .business-cta {
+    background: #e1b24b;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 3px;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-inline: auto;
+    font-family: Cinzel;
+  }
+  .business-cta:hover {
+    background: #c99c3b;
+  }
+  
+  .business-subtitle {
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #181818;
+      margin: 4vh 0 4vh 16vw;
+      letter-spacing: 0.04em;
+  }
+  
+  .business-description {
+      text-align: left;
+      font-size: 1.1rem;
+      color: #444;
+      margin: 0 0 2.2rem 0;
+      max-width: 1100px;
+      margin-left: 16vw;
+      /* margin-right: auto; */
+      line-height: 1.6;
+      font-family: 'Atyp Display';
+  }
+
+  .business-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+  }
+  
+  .business-card-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .business-card-info {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.1rem 1.2rem 0 1.2rem;
+  }
+  
+  .business-card-number {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #e1b24b;
+    margin-right: 0.7rem;
+    font-family: Cinzel;
+    display: inline-block;
+  }
+  
+  .business-card-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #181818;
+    letter-spacing: 0.04em;
+    font-family: Cinzel;
+    display: inline-block;
+  }
+ 
+.business-slider-fade{
+    animation: businessFade .7s ease;
+}
+
+@keyframes businessFade{
+    from{
+        opacity:0;
+        transform:scale(1.03);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+  
+  @media (max-width: 1100px) {
+    .business-card-img {
+      height: 260px;
+    }
+    .business-card-title {
+      font-size: 1.1rem;
+    }
+    .business-card-number {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .business-section {
+      text-align: center;
+    }
+    .business-header-row {
+      flex-direction: column;
+      gap: 0.7rem;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .business-title {
+      font-size: 1.3rem;
+      margin: 0.5rem 0;
+      margin-left: 0;
+      text-align: center;
+      width: 100%;
+      padding-right: 0px;
+    }
+    .business-cta {
+      margin-inline: auto;
+      display: none;
+    }
+    .business-subtitle {
+      text-align: center;
+      margin: 2vh 0 2vh 0;
+      width: 100%;
+    }
+    .business-description {
+      text-align: center;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+  
+
+  .business-landing-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 1vh;
+  }
+  
+  .business-landing-img {
+    width: 100%;
+    height: 70vh;
+    display: block;
+    /* object-fit: conatin; */
+  }
+  
+  .desktop-img {
+    display: block;
+  }
+  .mobile-img {
+    display: none;
+  }
+  
+  @media (max-width: 600px) {
+    .desktop-img {
+      display: none;
+    }
+    .mobile-img {
+      display: block;
+    }
+  }
+
+.business-slider-fade {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.business-slider-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.business-slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.business-slider-dot.active {
+  background: #bfa14a;
+  transform: scale(1.2);
+}
+  

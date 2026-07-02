@@ -1,0 +1,83 @@
+.venuebp-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 18px auto 0 auto;
+    text-align: center;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    color: #222;
+    background: transparent;
+  }
+  
+  .venuebp-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    font-family: Cinzel;
+    color: #222;
+  }
+  
+  .venuebp-line {
+    flex-grow: 0.5;
+    height: 1.55px;
+    background: #222;
+    border: none;
+    margin-right: 2vw;
+    margin-left: 12vw;
+  }
+  
+  .venuebp-line-r {
+    flex-grow: 0.5;
+    height: 1.55px;
+    background: #222;
+    border: none;
+    margin-left: 2vw;
+    margin-right: 12vw;
+  }
+  
+  .venuebp-title {
+    font-size: 4vw;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 0;
+    font-family: 'Cinzel';
+  }
+  
+  .venuebp-subtitle {
+    font-size: 1.8vw;
+    font-weight: 400;
+    margin: 0 0 28px 0;
+    letter-spacing: 1px;
+    color: #222;
+    font-family: 'Cinzel';
+  }
+  
+  .venuebp-description {
+    /* font-size: 1.2vw; */
+    color: #222;
+    /* max-width: 800px; */
+    margin: 0 auto;
+    line-height: 1.6;
+    font-family: 'Atyp Display';
+    opacity: 0.85;
+  }
+  
+  @media (max-width: 600px) {
+    .venuebp-container {
+      margin-top: 30px;
+      padding: 0 10px;
+    }
+    .venuebp-title {
+      font-size: 2rem;
+    }
+    .venuebp-subtitle {
+      font-size: 1.05rem;
+    }
+    .venuebp-description {
+      font-size: 0.92rem;
+    }
+    /* .venuebp-line {
+      margin: 0 8px;
+    } */
+  }
+  

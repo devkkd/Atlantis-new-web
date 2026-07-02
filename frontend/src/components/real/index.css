@@ -1,0 +1,450 @@
+.real-section {
+    background: #fffcf5;
+    padding: 5.5rem 2rem 0rem 2rem;
+    font-family: 'Cinzel', serif;
+  }
+
+  .real-header-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .real-header-line {
+    flex: 0.3;
+    height: 1.5px;
+    background: #181818;
+    min-width: 60px;
+    border: none;
+  }
+
+  .real-title-spaced {
+    padding-right: 0.4rem; /* Adjust as needed */
+  }
+
+  .real-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #181818;
+    margin: 0 1.5rem 0 1.5rem;
+    letter-spacing: 0.017em;
+  }
+
+  .real-cta {
+    background: #e1b24b;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 3px;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-inline: auto;
+    font-family: Cinzel;
+  }
+
+  .real-cta:hover {
+    background: #c99c3b;
+  }
+  
+  .real-subtitle {
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #181818;
+      margin: 4vh 0 4vh 16vw;
+      letter-spacing: 0.04em;
+  }
+  
+  .real-description {
+      text-align: left;
+      font-size: 1.1rem;
+      color: #444;
+      margin: 0 0 2.2rem 0;
+      max-width: 1100px;
+      margin-left: 16vw;
+      /* margin-right: auto; */
+      line-height: 1.6;
+      font-family: 'Atyp Display';
+  }
+
+  .real-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+  }
+  
+  .real-card-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .real-card-info {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.1rem 1.2rem 0 1.2rem;
+  }
+  
+  .real-card-number {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #e1b24b;
+    margin-right: 0.7rem;
+    font-family: Cinzel;
+    display: inline-block;
+  }
+  
+  .real-card-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #181818;
+    letter-spacing: 0.04em;
+    font-family: Cinzel;
+    display: inline-block;
+  }
+  
+  @media (max-width: 1100px) {
+    .real-card-img {
+      height: 260px;
+    }
+    .real-card-title {
+      font-size: 1.1rem;
+    }
+    .real-card-number {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .real-section {
+      text-align: center;
+    }
+    .real-header-row {
+      flex-direction: column;
+      gap: 0.7rem;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .real-title {
+      font-size: 1.3rem;
+      margin: 0.5rem 0;
+      margin-left: 0;
+      text-align: center;
+      width: 100%;
+      padding-right: 0px;
+    }
+    .real-cta {
+      margin-inline: auto;
+      display: block;
+    }
+    .real-subtitle {
+      text-align: center;
+      margin: 2vh 0 2vh 0;
+      width: 100%;
+    }
+    .real-description {
+      text-align: center;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+  
+
+  .real-landing-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .real-video-section {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4vh 0 4vh 0; /* space above and below */
+    background: #fffcf5;
+  }
+
+  .real-video-wrapper {
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .real-video {
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 700px) {
+    .real-video-section {
+      padding: 2vh 0 2vh 0;
+    }
+    .real-video-wrapper,
+    .real-video {
+      width: 100vw;
+      height: 30vh;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .real-section {
+      padding: 3rem 0.5rem 0 0.5rem;
+    }
+    .real-title {
+      font-size: 1.7rem;
+      padding-right: 0;
+    }
+    .real-title-spaced {
+      padding-right: 0;
+    }
+    .real-subtitle {
+      font-size: 1rem;
+      margin: 2vh 0 2vh 0;
+      text-align: center;
+    }
+    .real-description {
+      font-size: 0.98rem;
+      margin-left: 0;
+      margin-right: 0;
+      text-align: center;
+      max-width: 98w;
+    }
+  }
+
+  /* Ratings Row */
+  .real-ratings-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.7rem;
+    margin: 2.5rem 0 2.5rem 0;
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    flex-wrap: wrap;
+    margin-left: 16vw;
+  }
+  .real-rating-label {
+    font-weight: 500;
+    color: #181818;
+    margin-right: 0.3rem;
+  }
+  .real-rating-logo {
+    height: 28px;
+    width: auto;
+    margin: 0 0.5rem;
+    vertical-align: middle;
+  }
+  .award {
+    padding-bottom: 5px;
+  }
+  .real-rating-logo.trustpilot {
+    height: 28px;
+    margin-left: 0.3rem;
+    padding-bottom: 5px;
+  }
+  .real-rating-divider {
+    color: #181818;
+    font-size: 1.5rem;
+    margin: 0 1.2rem;
+  }
+
+  /* Testimonials Row */
+  .real-testimonials-row.slider {
+    overflow: hidden;
+    position: relative;
+    padding-right: 0;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    margin-bottom: 2.5rem;
+    background: none;
+  }
+
+  .real-slider-track {
+    display: flex;
+    will-change: transform;
+  }
+
+  .real-testimonial-card {
+    /* min-width and max-width are set inline for responsive slider */
+    box-sizing: border-box;
+    background: #f9ecd0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    min-width: 260px;
+    max-width: 300px;
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+  .real-quote-mark {
+    color: #bfa046;
+    font-size: 8.5rem;
+    font-family: serif;
+    /* margin-bottom: 1rem; */
+    /* line-height: 1; */
+    height: auto;
+    line-height: 70px;
+  }
+  .real-testimonial-text {
+    color: #181818;
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    font-family: 'Atyp Display', sans-serif;
+  }
+  .real-testimonial-author {
+    color: #181818;
+    font-size: 1.08rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 500;
+    margin-top: auto;
+  }
+
+  /* Arrows Row */
+  .real-arrows-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2.5rem;
+    font-size: 2.2rem;
+    color: #181818;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  .real-arrow {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s;
+  }
+  .real-arrow:hover {
+    color: #bfa046;
+  }
+
+  @media (max-width: 900px) {
+    .real-ratings-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .real-testimonials-row {
+      gap: 1rem;
+      flex-wrap: nowrap;
+      justify-content: center;
+      overflow-x: unset;
+      padding-bottom: 0;
+    }
+    .real-testimonial-card {
+      min-width: 220px;
+      max-width: 240px;
+      padding: 1.2rem 0.7rem 1rem 0.7rem;
+      font-size: 0.98rem;
+    }
+    .real-arrows-row {
+      gap: 1.2rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .real-testimonials-row.marquee {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-bottom: 2.5rem;
+    background: none;
+    outline: none;
+  }
+
+  .real-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 24s linear infinite;
+  }
+
+  .real-testimonials-row.marquee:hover .real-marquee-track,
+  .real-testimonials-row.marquee:focus .real-marquee-track {
+    animation-play-state: paused;
+  }
+
+  .real-testimonial-card {
+    min-width: 33.33vw;
+    max-width: 33.33vw;
+    flex: 0 0 33.33vw;
+    margin-right: 2rem;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 900px) {
+    .real-testimonial-card {
+      min-width: 90vw;
+      max-width: 90vw;
+      flex: 0 0 90vw;
+      margin-right: 1rem;
+    }
+  }
+
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .real-ratings-row {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      margin-left: 0;
+      margin-right: 0;
+      text-align: center;
+    }
+    .real-rating-logo, .real-rating-logo.trustpilot, .real-rating-logo.award {
+      height: 20px;
+      max-width: 60px;
+      margin: 0 0.2rem;
+      padding-bottom: 2px;
+    }
+    .real-rating-label {
+      font-size: 1rem;
+      margin: 0 0.2rem;
+    }
+    .real-rating-divider {
+      font-size: 1.1rem;
+      margin: 0 0.5rem;
+    }
+    .real-ratings-row svg {
+      width: 18px;
+      height: 18px;
+      margin-right: 1px;
+    }
+  }

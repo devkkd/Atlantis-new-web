@@ -1,0 +1,281 @@
+.messages-page{
+    width:100%;
+}
+
+.messages-header{
+    margin-bottom:30px;
+}
+
+.messages-header h1{
+    font-size:34px;
+    color:#222;
+    font-family:"Cinzel",serif;
+    margin-bottom:8px;
+}
+
+.messages-header p{
+    color:#777;
+    font-size:15px;
+}
+
+.table-wrapper{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #ECECEC;
+    box-shadow:0 10px 35px rgba(0,0,0,.05);
+    overflow-x:auto;
+}
+
+.messages-table{
+    width:100%;
+    min-width:900px;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+
+.messages-table thead{
+    background:#B8860B;
+}
+
+.messages-table thead th{
+    background:#B8860B;
+    color:#fff;
+    padding:20px 16px;
+    text-align:center;
+    font-size:18px;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.messages-table tbody tr{
+    border-bottom:1px solid #EFEFEF;
+    transition:.3s;
+}
+
+.messages-table tbody tr:hover{
+    background:#FAFAFA;
+}
+
+.messages-table td{
+    padding:22px 16px;
+    text-align:center;
+    vertical-align:middle;
+    color:#444;
+    font-size:15px;
+    word-break:break-word;
+}
+
+.messages-table td:nth-child(6){
+    min-width:280px;
+    white-space:pre-wrap;
+}
+
+.messages-table td:last-child{
+    text-align:center;
+}
+
+.delete-btn{
+    background:#E53935;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    padding:12px 24px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.delete-btn:hover{
+    background:#C62828;
+}
+
+.loading{
+    background:#fff;
+    border-radius:20px;
+    padding:70px;
+    text-align:center;
+    font-size:18px;
+    color:#666;
+    border:1px solid #ECECEC;
+    box-shadow:0 10px 35px rgba(0,0,0,.05);
+}
+
+.messages-table th:nth-child(1),
+.messages-table td:nth-child(1){
+    width:13%;
+}
+
+.messages-table th:nth-child(2),
+.messages-table td:nth-child(2){
+    width:10%;
+}
+
+.messages-table th:nth-child(3),
+.messages-table td:nth-child(3){
+    width:18%;
+}
+
+.messages-table th:nth-child(4),
+.messages-table td:nth-child(4){
+    width:12%;
+}
+
+.messages-table th:nth-child(5),
+.messages-table td:nth-child(5){
+    width:12%;
+}
+
+.messages-table th:nth-child(6),
+.messages-table td:nth-child(6){
+    width:23%;
+}
+
+.messages-table th:nth-child(7),
+.messages-table td:nth-child(7){
+    width:12%;
+}
+
+/* ================= TABLET ================= */
+@media(max-width:992px){
+
+    .messages-header h1{
+        font-size:28px;
+    }
+}
+
+/* ================= MOBILE: STACKED CARD LAYOUT ================= */
+/* Table ko card-list mein badla gaya hai taaki har value apne heading
+   ke seedha neeche/saamne dikhe, bina horizontal scroll ke confusion ke */
+@media(max-width:768px){
+
+    .messages-header h1{
+        font-size:24px;
+    }
+
+    .messages-header p{
+        font-size:13px;
+    }
+
+    .table-wrapper{
+        overflow-x:visible;
+        border-radius:16px;
+        box-shadow:none;
+        border:none;
+        background:transparent;
+    }
+
+    .messages-table{
+        min-width:0;
+        width:100%;
+        table-layout:auto;
+        border-collapse:separate;
+        border-spacing:0 16px;
+    }
+
+    /* Header row ko screen se hata do, screen-reader ke liye rakha */
+    .messages-table thead{
+        position:absolute;
+        width:1px;
+        height:1px;
+        overflow:hidden;
+        clip:rect(0 0 0 0);
+        white-space:nowrap;
+    }
+
+    .messages-table tbody tr{
+        display:block;
+        background:#fff;
+        border:1px solid #ECECEC;
+        border-radius:16px;
+        box-shadow:0 6px 20px rgba(0,0,0,.05);
+        padding:12px 16px;
+        margin-bottom:4px;
+    }
+
+    .messages-table td{
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap:12px;
+        text-align:right;
+        padding:12px 4px;
+        font-size:14px;
+        border-bottom:1px solid #F2F2F2;
+        width:100% !important;
+    }
+
+    .messages-table td:last-child{
+        border-bottom:none;
+        justify-content:center;
+    }
+
+    /* Har cell ke saamne uska heading label CSS se add ho raha hai */
+    .messages-table td::before{
+        content:attr(data-label);
+        font-weight:600;
+        color:#B8860B;
+        text-align:left;
+        flex-shrink:0;
+        font-size:13px;
+        text-transform:uppercase;
+        letter-spacing:.3px;
+    }
+
+    /* "No Messages Found" row ke liye normal centered display */
+    .messages-table td[colspan="7"]{
+        display:block;
+        text-align:center;
+    }
+
+    .messages-table td[colspan="7"]::before{
+        content:none;
+    }
+
+    .messages-table td:nth-child(6){
+        min-width:0;
+        white-space:pre-wrap;
+        text-align:right;
+    }
+
+    .delete-btn{
+        width:auto;
+        padding:10px 22px;
+    }
+
+    .loading{
+        padding:40px 20px;
+        font-size:16px;
+        border-radius:16px;
+    }
+}
+
+@media(max-width:480px){
+
+    .messages-header h1{
+        font-size:20px;
+    }
+
+    .messages-header p{
+        font-size:12px;
+    }
+
+    .messages-table tbody tr{
+        padding:10px 12px;
+    }
+
+    .messages-table td{
+        font-size:13px;
+        padding:10px 2px;
+    }
+
+    .messages-table td::before{
+        font-size:11px;
+    }
+
+    .delete-btn{
+        width:100%;
+        padding:10px 12px;
+    }
+}
