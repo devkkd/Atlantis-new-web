@@ -45,28 +45,15 @@ export default function Gallery() {
 
     }, []);
 
-   const getGallery = async () => {
+const getGallery = async () => {
 
     try {
 
-        const [galleryRes, homeRes] = await Promise.all([
+        const { data } = await api.get("/gallery");
 
-            api.get("/gallery"),
+        if (data.gallery) {
 
-            api.get("/home")
-
-        ]);
-
-        if (galleryRes.data.gallery) {
-
-            setGallery({
-
-                ...galleryRes.data.gallery,
-
-                contactLanding:
-                    homeRes.data.contactLanding?.image || ""
-
-            });
+            setGallery(data.gallery);
 
         }
 
