@@ -209,7 +209,7 @@ const getGallery = async () => {
 
         <h2>
 
-            CONTACT LANDING IMAGE
+            GALLERY LANDING IMAGE
 
         </h2>
 
