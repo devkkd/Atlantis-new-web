@@ -10,6 +10,13 @@ export default function Services() {
     const [file, setFile] = useState(null);
 
     const [saving, setSaving] = useState(false);
+    const [title, setTitle] = useState("");
+
+const [subtitle, setSubtitle] = useState("");
+
+const [description, setDescription] = useState("");
+
+const [contentSaving, setContentSaving] = useState(false);
 
     useEffect(() => {
 
@@ -25,7 +32,10 @@ export default function Services() {
 
             if (data.service) {
 
-                setImage(data.service.image);
+             setImage(data.service.serviceLanding.image);
+setTitle(data.service.serviceLanding.title);
+setSubtitle(data.service.serviceLanding.subtitle);
+setDescription(data.service.serviceLanding.description);
 
             }
 
@@ -51,7 +61,7 @@ export default function Services() {
 
     };
 
-    const saveService = async () => {
+const saveServiceImage = async () => {
 
         try {
 
@@ -65,7 +75,7 @@ export default function Services() {
 
             }
 
-            await api.put("/service", formData);
+         await api.put("/service/image", formData);
 
             await getService();
 
@@ -88,6 +98,43 @@ export default function Services() {
         }
 
     };
+    const saveServiceContent = async () => {
+
+    try {
+
+        setContentSaving(true);
+
+        await api.put("/service/content", {
+
+            title,
+
+            subtitle,
+
+            description
+
+        });
+
+        await getService();
+
+        alert("Service Content Updated Successfully");
+
+    }
+
+    catch (err) {
+
+        console.log(err);
+
+        alert("Something Went Wrong");
+
+    }
+
+    finally {
+
+        setContentSaving(false);
+
+    }
+
+};
 
     return (
 
@@ -165,7 +212,7 @@ export default function Services() {
 
                         className="save-btn"
 
-                        onClick={saveService}
+                       onClick={saveServiceImage}
 
                     >
 
@@ -186,6 +233,46 @@ export default function Services() {
                     </button>
 
                 </div>
+                <div className="cms-card">
+
+    <h2>Service Landing Content</h2>
+
+    <label>Title</label>
+
+    <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+    />
+
+    <label>Subtitle</label>
+
+    <input
+        type="text"
+        value={subtitle}
+        onChange={(e) => setSubtitle(e.target.value)}
+    />
+
+    <label>Description</label>
+
+    <textarea
+        rows={8}
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+    />
+
+    <button
+        className="save-btn"
+        onClick={saveServiceContent}
+    >
+        {
+            contentSaving
+                ? "Saving..."
+                : "Save Content"
+        }
+    </button>
+
+</div>
 
             </div>
 

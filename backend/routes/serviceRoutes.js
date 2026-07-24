@@ -1,17 +1,13 @@
 import express from "express";
 
 import {
-
     getService,
-
-    updateService
-
+    updateServiceImage,
+    updateServiceContent
 } from "../controllers/serviceController.js";
 
 import {
-
     serviceLandingUpload
-
 } from "../middleware/upload.js";
 
 const router = express.Router();
@@ -21,25 +17,27 @@ const router = express.Router();
 =========================== */
 
 router.get(
-
     "/",
-
     getService
-
 );
 
 /* ===========================
-   UPDATE SERVICE
+   UPDATE SERVICE IMAGE
 =========================== */
 
 router.put(
-
-    "/",
-
+    "/image",
     serviceLandingUpload,
+    updateServiceImage
+);
 
-    updateService
+/* ===========================
+   UPDATE SERVICE CONTENT
+=========================== */
 
+router.put(
+    "/content",
+    updateServiceContent
 );
 
 export default router;

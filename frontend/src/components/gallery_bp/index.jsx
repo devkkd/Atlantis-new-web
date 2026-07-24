@@ -1,18 +1,54 @@
-import React from 'react';
-import './index.css';
+import React, { useEffect, useState } from "react";
+import api from "../../admin/services/api";
+import "./index.css";
 
-const GalleryBP = () => (
-  <div className="gallerybp-container">
-    <div className="gallerybp-title-row">
-      <span className="gallerybp-line" />
-      <h1 className="gallerybp-title">GALLERY</h1>
-      <span className="gallerybp-line-r" />
+const GalleryBP = () => {
+
+  const [content, setContent] = useState({
+    title: "",
+    subtitle: "",
+    description: "",
+  });
+
+  useEffect(() => {
+    getGalleryContent();
+  }, []);
+
+  const getGalleryContent = async () => {
+    try {
+      const { data } = await api.get("/gallery");
+
+      if (data.gallery?.galleryLanding) {
+        setContent({
+          title: data.gallery.galleryLanding.title || "",
+          subtitle: data.gallery.galleryLanding.subtitle || "",
+          description: data.gallery.galleryLanding.description || "",
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  return (
+    <div className="gallerybp-container">
+      <div className="gallerybp-title-row">
+        <span className="gallerybp-line" />
+        <h1 className="gallerybp-title">
+          {content.title}
+        </h1>
+        <span className="gallerybp-line-r" />
+      </div>
+
+      <h2 className="gallerybp-subtitle">
+        {content.subtitle}
+      </h2>
+
+      <p className="gallerybp-description">
+        {content.description}
+      </p>
     </div>
-    <h2 className="gallerybp-subtitle">MOMENTS THAT DEFINE CELEBRATIONS</h2>
-    <p className="gallerybp-description">
-      Browse our curated gallery showcasing the beauty, grandeur, and joy of events hosted at Atlantis Jaipur. From majestic wedding setups to elegant décor and lively gatherings, every image tells a story of unforgettable memories made here.
-    </p>
-  </div>
-);
+  );
+};
 
 export default GalleryBP;

@@ -388,3 +388,35 @@
   display: block;
   margin: 0 auto;
 }
+/* Skeleton Loader */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #ececec 25%,
+    #f7f7f7 50%,
+    #ececec 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+.skeleton-card {
+  pointer-events: none;
+}
+
+.skeleton-card .blog-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}

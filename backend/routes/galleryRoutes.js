@@ -6,6 +6,10 @@ import {
 
     updateContactLanding,
 
+    updateGalleryLandingContent,
+
+    updateGallerySectionsContent,
+
     updateGrandHall,
 
     updatePreFunction,
@@ -48,6 +52,28 @@ router.put(
     galleryUpload,
 
     updateContactLanding
+
+);
+/* ===========================
+   GALLERY LANDING CONTENT
+=========================== */
+
+router.put(
+
+    "/galleryLandingContent",
+
+    updateGalleryLandingContent
+
+);
+/* ===========================
+   GALLERY SECTIONS CONTENT
+=========================== */
+
+router.put(
+
+    "/gallerySectionsContent",
+
+    updateGallerySectionsContent
 
 );
 /* ===========================

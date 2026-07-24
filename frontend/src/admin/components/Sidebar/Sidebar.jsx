@@ -11,7 +11,9 @@ import {
     FiPhone,
     FiSearch,
     FiFolder,
-    FiLogOut
+    FiLogOut,
+    FiLayout,
+    FiColumns
 } from "react-icons/fi";
 
 export default function Sidebar() {
@@ -73,6 +75,10 @@ export default function Sidebar() {
                 </div>
 
                 <nav>
+                    <NavLink to="/admin/header" className="menu-link">
+    <FiLayout />
+    Header
+</NavLink>
 
                     <NavLink to="/admin/home" className="menu-link">
 
@@ -113,6 +119,20 @@ export default function Sidebar() {
                         Contact
 
                     </NavLink>
+                    <NavLink to="/admin/contact-form" className="menu-link">
+
+    <FiFileText />
+
+    Contact Form
+
+</NavLink>
+                    <NavLink to="/admin/blog-landing" className="menu-link">
+
+    <FiImage />
+
+    Blog 
+
+</NavLink>
                     <NavLink to="/admin/messages" className="menu-link">
 
                         <FiMail />
@@ -120,6 +140,10 @@ export default function Sidebar() {
                         Messages
 
                     </NavLink>
+                    <NavLink to="/admin/footer" className="menu-link">
+    <FiColumns />
+    Footer
+</NavLink>
 
                 </nav>
 

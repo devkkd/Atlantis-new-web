@@ -14,11 +14,24 @@ import galleryRoutes from "./routes/galleryRoutes.js";
 import venueRoutes from "./routes/venueRoutes.js";
 import serviceRoutes from "./routes/serviceRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
+import headerRoutes from "./routes/headerRoutes.js";
+import footerRoutes from "./routes/footerRoutes.js";
+import blogLandingRoutes from "./routes/blogLandingRoutes.js";
+import blogRoutes from "./routes/blogRoutes.js";
+import contactFormRoutes from "./routes/contactFormRoutes.js";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+// CORS Setup - Sabse Upar rakho
+app.use(cors({
+    origin: ["http://localhost:5173", "http://localhost:3000", "http://localhost:5174"],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 /* ============================
    Database
@@ -56,6 +69,17 @@ app.use("/api/gallery", galleryRoutes);
 app.use("/api/venue", venueRoutes);
 app.use("/api/service", serviceRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/header", headerRoutes);
+app.use("/api/footer", footerRoutes);
+app.use(
+
+    "/api/blog-landing",
+
+    blogLandingRoutes
+
+);
+app.use("/api/blogs", blogRoutes);
+app.use("/api/contact-form", contactFormRoutes);
 
 /* ============================
    Test Route

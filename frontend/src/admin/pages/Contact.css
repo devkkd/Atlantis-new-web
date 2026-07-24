@@ -196,3 +196,69 @@
     }
 
 }
+/* ===========================
+   CONTACT CONTENT FORM
+=========================== */
+
+.cms-card label {
+    display: block;
+    margin: 18px 0 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #444;
+}
+
+.cms-card input[type="text"],
+.cms-card input[type="email"],
+.cms-card textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #DDD;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: .3s;
+    background: #fff;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.cms-card textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.cms-card input[type="text"]:focus,
+.cms-card input[type="email"]:focus,
+.cms-card textarea:focus {
+    border-color: #B8860B;
+    box-shadow: 0 0 0 3px rgba(184,134,11,.12);
+}
+
+.cms-card input::placeholder,
+.cms-card textarea::placeholder {
+    color: #999;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.content-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cms-card input[type="text"],
+    .cms-card input[type="email"],
+    .cms-card textarea {
+        font-size: 14px;
+    }
+}

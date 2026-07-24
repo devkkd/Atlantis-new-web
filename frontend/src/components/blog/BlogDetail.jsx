@@ -1,17 +1,48 @@
-import React, { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { blogs } from "./index.jsx";
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import "./index.css";
 
 const BlogDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const blog = blogs.find(b => b.slug === slug);
 
-  if (!blog) return <div>Blog not found.</div>;
+  const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Helper to upsert a meta tag
+    if (slug) {
+      fetchBlog();
+    }
+  }, [slug]);
+
+  const fetchBlog = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+const response = await fetch(
+  `${import.meta.env.VITE_API_URL}/blogs/${slug}`
+);
+      const result = await response.json();
+
+      if (result.success && result.blog) {
+        setBlog(result.blog);
+      } else {
+        setError("Blog not found");
+      }
+    } catch (err) {
+      console.error("Error fetching blog:", err);
+      setError("Failed to load blog");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Meta Tags Update
+  useEffect(() => {
+    if (!blog) return;
+
     const upsertMeta = (selector, attrs) => {
       let tag = document.head.querySelector(selector);
       if (!tag) {
@@ -33,28 +64,37 @@ const BlogDetail = () => {
 
     const description = descriptionFromContent();
 
-    // Standard description
+    // Update meta tags
     upsertMeta("meta[name='description']", { name: 'description', content: description });
 
-    // Keywords
     const keywords = Array.isArray(blog.metaKeywords)
       ? blog.metaKeywords.join(', ')
       : (blog.metaKeywords || 'wedding, banquet hall, Jaipur, venue, events');
+
     upsertMeta("meta[name='keywords']", { name: 'keywords', content: keywords });
+
   }, [blog]);
+
+  if (loading) return <div className="blog-detail-container"><h2>Loading blog...</h2></div>;
+  if (error) return <div className="blog-detail-container"><h2>{error}</h2></div>;
+  if (!blog) return <div className="blog-detail-container"><h2>Blog Not Found</h2></div>;
 
   return (
     <section className="blog-detail-section">
-      {/* <button className="blog-back-btn" onClick={() => navigate(-1)}>
+      <Link to="/blog" className="blog-back-btn">
         ← Back to Blogs
-      </button> */}
+      </Link>
+
       <h1 className="blog-detail-title">{blog.title}</h1>
+      
       <div className="blog-detail-image-center">
         <img src={blog.image} alt={blog.title} className="blog-detail-img" />
       </div>
+
       <div className="blog-detail-date">{blog.date}</div>
+
       <div className="blog-detail-content">
-        {blog.sections.map((section, idx) => {
+        {blog.sections?.map((section, idx) => {
           if (section.type === "text") {
             return <p className="blog-section-text" key={idx}>{section.content}</p>;
           }
@@ -73,7 +113,6 @@ const BlogDetail = () => {
             return (
               <div className="blog-section-image" key={idx} style={{ textAlign: "center", margin: "2rem 0" }}>
                 <img src={section.src} alt={section.alt || ""} className="blog-section-img" />
-                {section.caption && <div className="blog-section-caption">{section.caption}</div>}
               </div>
             );
           }

@@ -18,13 +18,39 @@ const upload = multer({
    HERO UPLOAD
 =========================== */
 
-export const heroUpload = upload.array(
+export const heroUpload = upload.fields([
 
-    "images",
+    {
+        name: "image0",
+        maxCount: 1
+    },
 
-    6
+    {
+        name: "image1",
+        maxCount: 1
+    },
 
-);
+    {
+        name: "image2",
+        maxCount: 1
+    },
+
+    {
+        name: "image3",
+        maxCount: 1
+    },
+
+    {
+        name: "image4",
+        maxCount: 1
+    },
+
+    {
+        name: "image5",
+        maxCount: 1
+    }
+
+]);
 
 /* ===========================
    VENUE UPLOAD
@@ -125,6 +151,33 @@ export const businessUpload = upload.fields([
 
         maxCount: 1
 
+    }
+
+]);
+/* ===========================
+   AWARDS IMAGE UPLOAD
+=========================== */
+
+export const awardsUpload = upload.fields([
+
+    {
+        name: "awards0",
+        maxCount: 1
+    },
+
+    {
+        name: "awards1",
+        maxCount: 1
+    },
+
+    {
+        name: "awards2",
+        maxCount: 1
+    },
+
+    {
+        name: "awards3",
+        maxCount: 1
     }
 
 ]);
@@ -238,6 +291,42 @@ export const venueLandingUpload = upload.single(
 
 );
 /* ===========================
+   FLOOR PLAN UPLOAD
+=========================== */
+
+export const floorPlanUpload = upload.single(
+
+    "image"
+
+);
+/* ===========================
+   GRAND HALL UPLOAD
+=========================== */
+
+export const grandHallUpload = upload.single(
+
+    "image"
+
+);
+/* ===========================
+   SMALL HALL UPLOAD
+=========================== */
+
+export const smallHallUpload = upload.single(
+
+    "image"
+
+);
+/* ===========================
+   LAWN UPLOAD
+=========================== */
+
+export const lawnUpload = upload.single(
+
+    "image"
+
+);
+/* ===========================
    SERVICE LANDING UPLOAD
 =========================== */
 
@@ -255,6 +344,26 @@ export const contactLandingUpload = upload.single(
     "image"
 
 );
+/* ===========================
+   BLOG LANDING UPLOAD
+=========================== */
+
+export const blogLandingUpload = upload.single(
+
+    "image"
+
+);
+export const blogSectionImagesUpload = upload.fields([
+    { name: "sectionImage", maxCount: 10 }   // up to 10 images in one request
+]);
+/* ===========================
+   BLOG FEATURED IMAGE UPLOAD
+=========================== */
+
+/* ===========================
+   BLOG FEATURED IMAGE UPLOAD
+=========================== */
+export const blogFeaturedUpload = upload.single("image");
 export const noneUpload = upload.none();
 
 export default upload;

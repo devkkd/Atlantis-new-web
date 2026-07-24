@@ -4,7 +4,8 @@ import {
 
     getContact,
 
-    updateContact
+    updateContact,
+     updateContactContent
 
 } from "../controllers/contactController.js";
 
@@ -40,6 +41,10 @@ router.put(
 
     updateContact
 
+);
+router.put(
+    "/content",
+    updateContactContent
 );
 
 export default router;

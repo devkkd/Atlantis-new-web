@@ -14,21 +14,27 @@ export const getGallery = async (req, res) => {
 
         if (!gallery) {
 
-            gallery = await Gallery.create({
+        gallery = await Gallery.create({
 
-                contactLanding: "",
+    galleryLanding: {
+        image: "",
+        title: "GALLERY",
+        subtitle: "MOMENTS THAT DEFINE CELEBRATIONS",
+        description:
+            "Browse our curated gallery showcasing the beauty, grandeur, and joy of events hosted at Atlantis Jaipur. From majestic wedding setups to elegant décor and lively gatherings, every image tells a story of unforgettable memories made here."
+    },
 
-                grandHall: Array(10).fill(""),
+    grandHall: Array(10).fill(""),
 
-                preFunction: Array(10).fill(""),
+    preFunction: Array(10).fill(""),
 
-                diningHall: Array(5).fill(""),
+    diningHall: Array(5).fill(""),
 
-                dressingSuite: Array(10).fill(""),
+    dressingSuite: Array(10).fill(""),
 
-                propertyInsights: Array(10).fill("")
+    propertyInsights: Array(10).fill("")
 
-            });
+});
 
         }
 
@@ -130,21 +136,27 @@ const updateSection = async (
 
         if (!gallery) {
 
-            gallery = await Gallery.create({
+          gallery = await Gallery.create({
 
-                contactLanding: "",
+    galleryLanding: {
+        image: "",
+        title: "GALLERY",
+        subtitle: "MOMENTS THAT DEFINE CELEBRATIONS",
+        description:
+            "Browse our curated gallery showcasing the beauty, grandeur, and joy of events hosted at Atlantis Jaipur. From majestic wedding setups to elegant décor and lively gatherings, every image tells a story of unforgettable memories made here."
+    },
 
-                grandHall: Array(10).fill(""),
+    grandHall: Array(10).fill(""),
 
-                preFunction: Array(10).fill(""),
+    preFunction: Array(10).fill(""),
 
-                diningHall: Array(5).fill(""),
+    diningHall: Array(5).fill(""),
 
-                dressingSuite: Array(10).fill(""),
+    dressingSuite: Array(10).fill(""),
 
-                propertyInsights: Array(10).fill("")
+    propertyInsights: Array(10).fill("")
 
-            });
+});
 
         }
 
@@ -406,5 +418,110 @@ export const updateContactLanding = async (req, res) => {
         "gallery/contactLanding"
 
     );
+
+};
+/* ===========================
+   UPDATE GALLERY BP CONTENT
+=========================== */
+
+export const updateGalleryLandingContent = async (req, res) => {
+
+    try {
+
+        let gallery = await Gallery.findOne();
+
+        if (!gallery) {
+
+            gallery = await Gallery.create();
+
+        }
+
+        if (!gallery.galleryLanding) {
+
+            gallery.galleryLanding = {
+                image: "",
+                title: "GALLERY",
+                subtitle: "MOMENTS THAT DEFINE CELEBRATIONS",
+                description:
+                    "Browse our curated gallery showcasing the beauty, grandeur, and joy of events hosted at Atlantis Jaipur. From majestic wedding setups to elegant décor and lively gatherings, every image tells a story of unforgettable memories made here."
+            };
+
+        }
+
+        gallery.galleryLanding.title = req.body.title;
+        gallery.galleryLanding.subtitle = req.body.subtitle;
+        gallery.galleryLanding.description = req.body.description;
+
+        await gallery.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Gallery Landing Content Updated Successfully",
+            gallery
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+
+};
+/* ===========================
+   UPDATE GALLERY SECTIONS CONTENT
+=========================== */
+
+export const updateGallerySectionsContent = async (req, res) => {
+
+    try {
+
+        let gallery = await Gallery.findOne();
+
+        if (!gallery) {
+
+            gallery = await Gallery.create();
+
+        }
+
+        if (!gallery.galleryContent) {
+
+            gallery.galleryContent = {};
+
+        }
+
+        gallery.galleryContent = req.body;
+
+        await gallery.save();
+
+        res.status(200).json({
+
+            success: true,
+
+            message: "Gallery Sections Content Updated Successfully",
+
+            gallery
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+
+            success: false,
+
+            message: error.message
+
+        });
+
+    }
 
 };

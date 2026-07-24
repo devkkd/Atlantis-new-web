@@ -44,6 +44,34 @@ export default function Gallery() {
         getGallery();
 
     }, []);
+    const [title, setTitle] = useState("");
+const [subtitle, setSubtitle] = useState("");
+const [description, setDescription] = useState("");
+const [contentSaving, setContentSaving] = useState(false);
+const [sectionsContent, setSectionsContent] = useState({
+    grandHall: {
+        heading: "",
+        tagline: ""
+    },
+    preFunction: {
+        heading: "",
+        tagline: ""
+    },
+    diningHall: {
+        heading: "",
+        tagline: ""
+    },
+    dressingSuite: {
+        heading: "",
+        tagline: ""
+    },
+    propertyInsights: {
+        heading: "",
+        tagline: ""
+    }
+});
+
+const [sectionContentSaving, setSectionContentSaving] = useState(false);
 
 const getGallery = async () => {
 
@@ -54,6 +82,33 @@ const getGallery = async () => {
         if (data.gallery) {
 
             setGallery(data.gallery);
+            setTitle(data.gallery.galleryLanding?.title || "");
+setSubtitle(data.gallery.galleryLanding?.subtitle || "");
+setDescription(data.gallery.galleryLanding?.description || "");
+setSectionsContent(
+    data.gallery.galleryContent || {
+        grandHall: {
+            heading: "",
+            tagline: ""
+        },
+        preFunction: {
+            heading: "",
+            tagline: ""
+        },
+        diningHall: {
+            heading: "",
+            tagline: ""
+        },
+        dressingSuite: {
+            heading: "",
+            tagline: ""
+        },
+        propertyInsights: {
+            heading: "",
+            tagline: ""
+        }
+    }
+);
 
         }
 
@@ -202,6 +257,62 @@ const getGallery = async () => {
     }
 
 };
+const saveGalleryContent = async () => {
+
+    try {
+
+        setContentSaving(true);
+
+        await api.put("/gallery/galleryLandingContent", {
+            title,
+            subtitle,
+            description
+        });
+
+        await getGallery();
+
+        alert("Gallery Content Updated Successfully");
+
+    } catch (err) {
+
+        console.log(err);
+        alert("Something Went Wrong");
+
+    } finally {
+
+        setContentSaving(false);
+
+    }
+
+};
+const saveGallerySectionsContent = async () => {
+
+    try {
+
+        setSectionContentSaving(true);
+
+        await api.put(
+            "/gallery/gallerySectionsContent",
+            sectionsContent
+        );
+
+        await getGallery();
+
+        alert("Gallery Sections Updated Successfully");
+
+    } catch (err) {
+
+        console.log(err);
+
+        alert("Something Went Wrong");
+
+    } finally {
+
+        setSectionContentSaving(false);
+
+    }
+
+};
 
    const renderContactLanding = () => (
 
@@ -304,6 +415,131 @@ const getGallery = async () => {
     </div>
 
 );
+const renderGalleryContent = () => (
+
+    <div className="cms-card">
+
+        <h2>GALLERY CONTENT</h2>
+
+        <label>Title</label>
+
+        <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+        />
+
+        <label>Subtitle</label>
+
+        <input
+            type="text"
+            value={subtitle}
+            onChange={(e) => setSubtitle(e.target.value)}
+        />
+
+        <label>Description</label>
+
+        <textarea
+            rows={6}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+        />
+
+        <button
+            className="save-btn"
+            onClick={saveGalleryContent}
+        >
+            {contentSaving ? "Saving..." : "Save Gallery Content"}
+        </button>
+
+    </div>
+
+);
+const renderGallerySectionsContent = () => {
+
+    const sectionNames = {
+        grandHall: "Grand Hall",
+        preFunction: "Pre Function Hall",
+        diningHall: "Dining Hall",
+        dressingSuite: "Dressing Suite",
+        propertyInsights: "Property Insights"
+    };
+
+    return (
+
+        <div className="cms-card">
+
+            <h2>GALLERY SECTIONS CONTENT</h2>
+
+            {
+
+                Object.keys(sectionsContent).map((key) => (
+
+                    <div
+                        key={key}
+                        style={{
+                            marginBottom: "35px",
+                            borderBottom: "1px solid #ddd",
+                            paddingBottom: "25px"
+                        }}
+                    >
+
+                        <h3>{sectionNames[key]}</h3>
+
+                        <label>{sectionNames[key]} Heading</label>
+
+                        <input
+                            type="text"
+                            value={sectionsContent[key].heading}
+                            onChange={(e) =>
+                                setSectionsContent({
+                                    ...sectionsContent,
+                                    [key]: {
+                                        ...sectionsContent[key],
+                                        heading: e.target.value
+                                    }
+                                })
+                            }
+                        />
+
+                        <label>{sectionNames[key]} Tagline</label>
+
+                        <input
+                            type="text"
+                            value={sectionsContent[key].tagline}
+                            onChange={(e) =>
+                                setSectionsContent({
+                                    ...sectionsContent,
+                                    [key]: {
+                                        ...sectionsContent[key],
+                                        tagline: e.target.value
+                                    }
+                                })
+                            }
+                        />
+
+                    </div>
+
+                ))
+
+            }
+
+            <button
+                className="save-btn"
+                onClick={saveGallerySectionsContent}
+            >
+                {
+                    sectionContentSaving
+                        ? "Saving..."
+                        : "Save Gallery Sections"
+                }
+            </button>
+
+        </div>
+
+    );
+
+};
 const renderSection = (title, key, total) => (
 
     <div className="cms-card">
@@ -422,6 +658,8 @@ const renderSection = (title, key, total) => (
                 </h1>
                 
 {renderContactLanding()}
+{renderGalleryContent()}
+{renderGallerySectionsContent()}
                 {
 
                     renderSection(

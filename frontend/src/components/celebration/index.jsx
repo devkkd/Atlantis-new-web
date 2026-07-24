@@ -1,28 +1,94 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
+import api from "../../admin/services/api";
 
-const Celebration = () => (
-  <section className="celebration-section">
-    <div className="celebration-title-row">
-      <hr className="celebration-line" />
-      <h1 className="celebration-title">Jaipur's Premier Wedding Venue</h1>
-      <hr className="celebration-line" />
-    </div>
-    <p className="celebration-subtitle">
-      Experience grandeur like never before. Atlantiis Jaipur is a luxury
-      banquet hall in Jaipur crafted for unforgettable weddings, corporate
-      events, and majestic celebrations.
-    </p>
-    <div className="celebration-title-row" style={{ marginTop: "4vh" }}>
-      <h2 className="celebration-title">
-        PERFECTLY CRAFTED VENUES FOR EVERY OCCASION
-      </h2>
-    </div>
-    <p className="celebration-subtitle">
-      From dream weddings to milestone parties and corporate galas, Our banquet
-      hall adapts to your event.
-    </p>
-  </section>
-);
+const Celebration = () => {
+
+  const [celebration, setCelebration] = useState({
+
+    title1: "",
+
+    subtitle1: "",
+
+    title2: "",
+
+    subtitle2: ""
+
+  });
+
+  useEffect(() => {
+
+    getCelebration();
+
+  }, []);
+
+  const getCelebration = async () => {
+
+    try {
+
+      const { data } = await api.get("/home");
+
+      if (data.celebrationSection) {
+
+        setCelebration(data.celebrationSection);
+
+      }
+
+    } catch (err) {
+
+      console.log(err);
+
+    }
+
+  };
+
+  return (
+
+    <section className="celebration-section">
+
+      <div className="celebration-title-row">
+
+        <hr className="celebration-line" />
+
+        <h1 className="celebration-title">
+
+          {celebration.title1}
+
+        </h1>
+
+        <hr className="celebration-line" />
+
+      </div>
+
+      <p className="celebration-subtitle">
+
+        {celebration.subtitle1}
+
+      </p>
+
+      <div
+        className="celebration-title-row"
+        style={{ marginTop: "4vh" }}
+      >
+
+        <h2 className="celebration-title">
+
+          {celebration.title2}
+
+        </h2>
+
+      </div>
+
+      <p className="celebration-subtitle">
+
+        {celebration.subtitle2}
+
+      </p>
+
+    </section>
+
+  );
+
+};
 
 export default Celebration;

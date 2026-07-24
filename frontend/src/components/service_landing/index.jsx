@@ -22,7 +22,7 @@ const ServiceLanding = () => {
 
             if (data.success && data.service) {
 
-                setImage(data.service.image || "");
+               setImage(data.service.serviceLanding.image || "");
 
             }
 

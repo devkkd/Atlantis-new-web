@@ -6,14 +6,14 @@ import api from "../services/api";
 export default function Home() {
 
     const [loading, setLoading] = useState({
-  hero: false,
-  venue: false,
-  atlantiis: false,
-  wedding: false,
-  business: false,
-  review: false,
-  magic: false,
-});
+        hero: false,
+        venue: false,
+        atlantiis: false,
+        wedding: false,
+        business: false,
+        review: false,
+        magic: false,
+    });
 
     const [heroImages, setHeroImages] = useState(
         Array.from({ length: 6 }, () => ({
@@ -52,15 +52,22 @@ export default function Home() {
             preview: ""
         }))
     );
+    const [awardsImages, setAwardsImages] = useState(
+        Array.from({ length: 4 }, () => ({
+            image: "",
+            alt: "",
+            file: null,
+            preview: ""
+        }))
+    );
     const [atlantiisImage, setAtlantiisImage] = useState({
-
-    image: "",
-
-    file: null,
-
-    preview: ""
-
-});
+        title: "",
+        subtitle: "",
+        description: "",
+        image: "",
+        file: null,
+        preview: ""
+    });
     const [reviews, setReviews] = useState(
         Array.from({ length: 6 }, () => ({
             author: "",
@@ -69,13 +76,62 @@ export default function Home() {
     );
     const [magicVideo, setMagicVideo] = useState({
 
-    video: "",
+        video: "",
 
-    file: null,
+        file: null,
 
-    preview: ""
+        preview: ""
 
-});
+    });
+    const [celebration, setCelebration] = useState({
+
+        title1: "",
+
+        subtitle1: "",
+
+        title2: "",
+
+        subtitle2: ""
+
+    });
+    const [weddingContent, setWeddingContent] = useState({
+
+        title: "",
+
+        subtitle: "",
+
+        description: ""
+
+    });
+    const [businessContent, setBusinessContent] = useState({
+
+        title: "",
+
+        subtitle: "",
+
+        description: ""
+
+    });
+    const [awardsContent, setAwardsContent] = useState({
+
+        title: "",
+
+        subtitle: ""
+
+    });
+    const [realContent, setRealContent] = useState({
+
+        title: "",
+
+        subtitle: "",
+
+        description: "",
+
+        ratingTitle: "",
+
+        trustpilotTitle: ""
+
+    });
     useEffect(() => {
         getHome();
     }, []);
@@ -172,24 +228,86 @@ export default function Home() {
             });
 
             setBusinessImages(business);
-setAtlantiisImage({
+            const awards = Array.from({ length: 4 }, (_, index) => {
 
-    image: data.atlantiisSection?.image || "",
+                const item = data.awardsSection?.[index];
 
-    preview: data.atlantiisSection?.image || "",
+                return {
+                    image: item?.image || "",
+                    alt: item?.alt || "",
+                    preview: item?.image || "",
+                    file: null
+                };
 
-    file: null
+            });
 
-});
+            setAwardsImages(awards);
+            setAtlantiisImage({
+                title: data.atlantiisSection?.title || "",
+                subtitle: data.atlantiisSection?.subtitle || "",
+                description: data.atlantiisSection?.description || "",
+                image: data.atlantiisSection?.image || "",
+                preview: data.atlantiisSection?.image || "",
+                file: null
+            });
             setMagicVideo({
 
-    video: data.magicSection?.video || "",
+                video: data.magicSection?.video || "",
 
-    preview: data.magicSection?.video || "",
+                preview: data.magicSection?.video || "",
 
-    file: null
+                file: null
 
-});
+            });
+            setCelebration({
+
+                title1: data.celebrationSection?.title1 || "",
+
+                subtitle1: data.celebrationSection?.subtitle1 || "",
+
+                title2: data.celebrationSection?.title2 || "",
+
+                subtitle2: data.celebrationSection?.subtitle2 || ""
+
+            });
+            setWeddingContent({
+
+                title: data.weddingContent?.title || "",
+
+                subtitle: data.weddingContent?.subtitle || "",
+
+                description: data.weddingContent?.description || ""
+
+            });
+            setBusinessContent({
+
+                title: data.businessContent?.title || "",
+
+                subtitle: data.businessContent?.subtitle || "",
+
+                description: data.businessContent?.description || ""
+
+            });
+            setAwardsContent({
+
+                title: data.awardsContent?.title || "",
+
+                subtitle: data.awardsContent?.subtitle || ""
+
+            });
+            setRealContent({
+
+                title: data.realContent?.title || "",
+
+                subtitle: data.realContent?.subtitle || "",
+
+                description: data.realContent?.description || "",
+
+                ratingTitle: data.realContent?.ratingTitle || "",
+
+                trustpilotTitle: data.realContent?.trustpilotTitle || ""
+
+            });
             const reviewList = Array.from({ length: 20 }, (_, index) => {
 
                 const item = data.reviewSection?.[index];
@@ -295,19 +413,19 @@ setAtlantiisImage({
         setBusinessImages(list);
 
     };
-  const atlantiisImageChange = (file) => {
+    const atlantiisImageChange = (file) => {
 
-    setAtlantiisImage({
+        setAtlantiisImage({
 
-        ...atlantiisImage,
+            ...atlantiisImage,
 
-        file,
+            file,
 
-        preview: URL.createObjectURL(file)
+            preview: URL.createObjectURL(file)
 
-    });
+        });
 
-};
+    };
     const businessAltChange = (index, value) => {
 
         const list = [...businessImages];
@@ -317,69 +435,122 @@ setAtlantiisImage({
         setBusinessImages(list);
 
     };
-    const magicVideoChange = (file) => {
+    const awardsImageChange = (index, file) => {
 
-    setMagicVideo({
+        const list = [...awardsImages];
 
-        ...magicVideo,
+        list[index].file = file;
 
-        file,
+        list[index].preview = URL.createObjectURL(file);
 
-        preview: URL.createObjectURL(file)
+        setAwardsImages(list);
 
-    });
+    };
 
-};
+    const awardsAltChange = (index, value) => {
 
-const saveMagic = async () => {
+        const list = [...awardsImages];
 
-    try {
+        list[index].alt = value;
 
-       setLoading(prev => ({
-  ...prev,
-  magic: true
-}));
+        setAwardsImages(list);
 
-        const formData = new FormData();
+    };
 
-        if (magicVideo.file) {
+    const saveAwards = async () => {
 
-            formData.append(
+        try {
 
-                "magicVideo",
+            const formData = new FormData();
 
-                magicVideo.file
+            awardsImages.forEach((item, index) => {
 
-            );
+                if (item.file) {
+
+                    formData.append(`awards${index}`, item.file);
+
+                }
+
+                formData.append(`alt${index}`, item.alt);
+
+            });
+
+            await api.put("/home/awards", formData);
+
+            alert("Awards Updated");
+
+            getHome();
+
+        } catch {
+
+            alert("Update Failed");
 
         }
 
-        await api.put(
+    };
+    const magicVideoChange = (file) => {
 
-            "/home/magic",
+        setMagicVideo({
 
-            formData
+            ...magicVideo,
 
-        );
+            file,
 
-        alert("Magic Video Updated");
+            preview: URL.createObjectURL(file)
 
-        getHome();
+        });
 
-    }
+    };
 
-    catch {
+    const saveMagic = async () => {
 
-        alert("Update Failed");
+        try {
 
-    }
+            setLoading(prev => ({
+                ...prev,
+                magic: true
+            }));
 
-    setLoading(prev => ({
-  ...prev,
-  magic: false
-}));
+            const formData = new FormData();
 
-};
+            if (magicVideo.file) {
+
+                formData.append(
+
+                    "magicVideo",
+
+                    magicVideo.file
+
+                );
+
+            }
+
+            await api.put(
+
+                "/home/magic",
+
+                formData
+
+            );
+
+            alert("Magic Video Updated");
+
+            getHome();
+
+        }
+
+        catch {
+
+            alert("Update Failed");
+
+        }
+
+        setLoading(prev => ({
+            ...prev,
+            magic: false
+        }));
+
+    };
     const reviewChange = (index, field, value) => {
 
         const list = [...reviews];
@@ -394,9 +565,9 @@ const saveMagic = async () => {
         try {
 
             setLoading(prev => ({
-  ...prev,
-  hero: true
-}));
+                ...prev,
+                hero: true
+            }));
 
             const formData = new FormData();
 
@@ -404,7 +575,7 @@ const saveMagic = async () => {
 
                 if (item.file) {
 
-                    formData.append("images", item.file);
+                    formData.append(`image${index}`, item.file);
 
                 }
 
@@ -428,10 +599,10 @@ const saveMagic = async () => {
 
         }
 
-      setLoading(prev => ({
-  ...prev,
-  hero: false
-}));
+        setLoading(prev => ({
+            ...prev,
+            hero: false
+        }));
 
     };
 
@@ -441,9 +612,9 @@ const saveMagic = async () => {
         try {
 
             setLoading(prev => ({
-  ...prev,
-  venue: true
-}));
+                ...prev,
+                venue: true
+            }));
 
             const formData = new FormData();
 
@@ -477,20 +648,20 @@ const saveMagic = async () => {
 
         }
 
-       setLoading(prev => ({
-  ...prev,
-  venue: false
-}));
+        setLoading(prev => ({
+            ...prev,
+            venue: false
+        }));
 
     };
     const saveWedding = async () => {
 
         try {
 
-           setLoading(prev => ({
-  ...prev,
-  wedding: true
-}));
+            setLoading(prev => ({
+                ...prev,
+                wedding: true
+            }));
 
             const formData = new FormData();
 
@@ -525,9 +696,9 @@ const saveMagic = async () => {
         }
 
         setLoading(prev => ({
-  ...prev,
-  wedding: false
-}));
+            ...prev,
+            wedding: false
+        }));
 
     };
     const saveBusiness = async () => {
@@ -535,9 +706,9 @@ const saveMagic = async () => {
         try {
 
             setLoading(prev => ({
-  ...prev,
-  business: true
-}));
+                ...prev,
+                business: true
+            }));
 
             const formData = new FormData();
 
@@ -568,78 +739,165 @@ const saveMagic = async () => {
         }
 
         setLoading(prev => ({
-  ...prev,
-  business: false
-}));
+            ...prev,
+            business: false
+        }));
 
     };
     const saveAtlantiis = async () => {
 
-    try {
+        try {
 
-        setLoading(prev => ({
+            setLoading(prev => ({
 
-            ...prev,
+                ...prev,
 
-            atlantiis: true
+                atlantiis: true
 
-        }));
+            }));
 
-        const formData = new FormData();
+            const formData = new FormData();
+            formData.append("title", atlantiisImage.title);
+            formData.append("subtitle", atlantiisImage.subtitle);
+            formData.append("description", atlantiisImage.description);
+            if (atlantiisImage.file) {
 
-        if (atlantiisImage.file) {
+                formData.append(
 
-            formData.append(
+                    "atlantiis",
 
-                "atlantiis",
+                    atlantiisImage.file
 
-                atlantiisImage.file
+                );
+
+            }
+
+            await api.put(
+
+                "/home/atlantiis",
+
+                formData
 
             );
 
+            alert("Atlantiis Updated");
+
+            getHome();
+
         }
 
-        await api.put(
+        catch {
 
-            "/home/atlantiis",
+            alert("Update Failed");
 
-            formData
+        }
 
-        );
+        finally {
 
-        alert("Atlantiis Updated");
+            setLoading(prev => ({
 
-        getHome();
+                ...prev,
 
-    }
+                atlantiis: false
 
-    catch {
+            }));
 
-        alert("Update Failed");
+        }
 
-    }
+    };
+    const saveWeddingContent = async () => {
 
-    finally {
+        try {
 
-        setLoading(prev => ({
+            await api.put("/home/wedding-content", weddingContent);
 
-            ...prev,
+            alert("Wedding Content Updated");
 
-            atlantiis: false
+            getHome();
 
-        }));
+        } catch {
 
-    }
+            alert("Update Failed");
 
-};
+        }
+
+    };
+    const saveBusinessContent = async () => {
+
+        try {
+
+            await api.put("/home/business-content", businessContent);
+
+            alert("Business Content Updated");
+
+            getHome();
+
+        } catch {
+
+            alert("Update Failed");
+
+        }
+
+    };
+    const saveAwardsContent = async () => {
+
+        try {
+
+            await api.put("/home/awards-content", awardsContent);
+
+            alert("Awards Content Updated");
+
+            getHome();
+
+        } catch {
+
+            alert("Update Failed");
+
+        }
+
+    };
+    const saveRealContent = async () => {
+
+        try {
+
+            await api.put("/home/real-content", realContent);
+
+            alert("Real Content Updated");
+
+            getHome();
+
+        } catch {
+
+            alert("Update Failed");
+
+        }
+
+    };
+    const saveCelebration = async () => {
+
+        try {
+
+            await api.put("/home/celebration", celebration);
+
+            alert("Celebration Updated");
+
+            getHome();
+
+        } catch {
+
+            alert("Update Failed");
+
+        }
+
+    };
     const saveReviews = async () => {
 
         try {
 
             setLoading(prev => ({
-  ...prev,
-  review: true
-}));
+                ...prev,
+                review: true
+            }));
 
             const payload = reviews.reduce((acc, item, index) => {
                 acc[`author${index}`] = item.author;
@@ -666,9 +924,9 @@ const saveMagic = async () => {
         finally {
 
             setLoading(prev => ({
-  ...prev,
-  review: false
-}));
+                ...prev,
+                review: false
+            }));
 
         }
 
@@ -786,14 +1044,78 @@ const saveMagic = async () => {
 
                         {
 
-                     loading.hero
-?
-"Saving..."
-:
-"Save Hero Slider"
+                            loading.hero
+                                ?
+                                "Saving..."
+                                :
+                                "Save Hero Slider"
 
                         }
 
+                    </button>
+
+                </div>
+                <div className="cms-card">
+
+                    <h2>Celebration Section</h2>
+
+                    <label>Title 1</label>
+
+                    <input
+                        type="text"
+                        value={celebration.title1}
+                        onChange={(e) =>
+                            setCelebration({
+                                ...celebration,
+                                title1: e.target.value
+                            })
+                        }
+                    />
+
+                    <label>Subtitle 1</label>
+
+                    <textarea
+                        rows="4"
+                        value={celebration.subtitle1}
+                        onChange={(e) =>
+                            setCelebration({
+                                ...celebration,
+                                subtitle1: e.target.value
+                            })
+                        }
+                    />
+
+                    <label>Title 2</label>
+
+                    <input
+                        type="text"
+                        value={celebration.title2}
+                        onChange={(e) =>
+                            setCelebration({
+                                ...celebration,
+                                title2: e.target.value
+                            })
+                        }
+                    />
+
+                    <label>Subtitle 2</label>
+
+                    <textarea
+                        rows="4"
+                        value={celebration.subtitle2}
+                        onChange={(e) =>
+                            setCelebration({
+                                ...celebration,
+                                subtitle2: e.target.value
+                            })
+                        }
+                    />
+
+                    <button
+                        className="save-btn"
+                        onClick={saveCelebration}
+                    >
+                        Save Celebration
                     </button>
 
                 </div>
@@ -957,11 +1279,11 @@ const saveMagic = async () => {
 
                         {
 
-                      loading.venue
-?
-"Saving..."
-:
-"Save Venue"
+                            loading.venue
+                                ?
+                                "Saving..."
+                                :
+                                "Save Venue"
 
                         }
 
@@ -979,6 +1301,45 @@ const saveMagic = async () => {
                     <div className="hero-grid">
 
                         <div className="hero-item">
+
+                            <label>Title</label>
+
+                            <input
+                                type="text"
+                                value={atlantiisImage.title}
+                                onChange={(e) =>
+                                    setAtlantiisImage({
+                                        ...atlantiisImage,
+                                        title: e.target.value
+                                    })
+                                }
+                            />
+
+                            <label>Subtitle</label>
+
+                            <input
+                                type="text"
+                                value={atlantiisImage.subtitle}
+                                onChange={(e) =>
+                                    setAtlantiisImage({
+                                        ...atlantiisImage,
+                                        subtitle: e.target.value
+                                    })
+                                }
+                            />
+
+                            <label>Description</label>
+
+                            <textarea
+                                rows="4"
+                                value={atlantiisImage.description}
+                                onChange={(e) =>
+                                    setAtlantiisImage({
+                                        ...atlantiisImage,
+                                        description: e.target.value
+                                    })
+                                }
+                            />
 
                             <div className="hero-preview">
 
@@ -1058,6 +1419,57 @@ const saveMagic = async () => {
 
                         }
 
+                    </button>
+
+                </div>
+                <div className="cms-card">
+
+                    <h2>Wedding Content</h2>
+
+                    <label>Title</label>
+
+                    <input
+                        type="text"
+                        value={weddingContent.title}
+                        onChange={(e) =>
+                            setWeddingContent({
+                                ...weddingContent,
+                                title: e.target.value
+                            })
+                        }
+                    />
+
+                    <label>Subtitle</label>
+
+                    <textarea
+                        rows="4"
+                        value={weddingContent.subtitle}
+                        onChange={(e) =>
+                            setWeddingContent({
+                                ...weddingContent,
+                                subtitle: e.target.value
+                            })
+                        }
+                    />
+
+                    <label>Description</label>
+
+                    <textarea
+                        rows="5"
+                        value={weddingContent.description}
+                        onChange={(e) =>
+                            setWeddingContent({
+                                ...weddingContent,
+                                description: e.target.value
+                            })
+                        }
+                    />
+
+                    <button
+                        className="save-btn"
+                        onClick={saveWeddingContent}
+                    >
+                        Save Wedding Content
                     </button>
 
                 </div>
@@ -1225,14 +1637,65 @@ const saveMagic = async () => {
 
                         {
 
-                         loading.wedding
-?
-"Saving..."
-:
-"Save Wedding"
+                            loading.wedding
+                                ?
+                                "Saving..."
+                                :
+                                "Save Wedding"
 
                         }
 
+                    </button>
+
+                </div>
+                <div className="cms-card">
+
+                    <h2>Business Event Content</h2>
+
+                    <label>Title</label>
+
+                    <input
+                        type="text"
+                        value={businessContent.title}
+                        onChange={(e) =>
+                            setBusinessContent({
+                                ...businessContent,
+                                title: e.target.value
+                            })
+                        }
+                    />
+
+                    <label>Subtitle</label>
+
+                    <textarea
+                        rows="4"
+                        value={businessContent.subtitle}
+                        onChange={(e) =>
+                            setBusinessContent({
+                                ...businessContent,
+                                subtitle: e.target.value
+                            })
+                        }
+                    />
+
+                    <label>Description</label>
+
+                    <textarea
+                        rows="5"
+                        value={businessContent.description}
+                        onChange={(e) =>
+                            setBusinessContent({
+                                ...businessContent,
+                                description: e.target.value
+                            })
+                        }
+                    />
+
+                    <button
+                        className="save-btn"
+                        onClick={saveBusinessContent}
+                    >
+                        Save Business Content
                     </button>
 
                 </div>
@@ -1349,17 +1812,197 @@ const saveMagic = async () => {
 
                         {
 
-                           loading.business
-?
-"Saving..."
-:
-"Save Business"
+                            loading.business
+                                ?
+                                "Saving..."
+                                :
+                                "Save Business"
 
                         }
 
                     </button>
 
                 </div>
+                <div className="cms-card">
+
+                    <h2>Awards Content</h2>
+
+                    <label>Title</label>
+
+                    <input
+                        type="text"
+                        value={awardsContent.title}
+                        onChange={(e) =>
+                            setAwardsContent({
+                                ...awardsContent,
+                                title: e.target.value
+                            })
+                        }
+                    />
+
+                    <label>Subtitle</label>
+
+                    <textarea
+                        rows="4"
+                        value={awardsContent.subtitle}
+                        onChange={(e) =>
+                            setAwardsContent({
+                                ...awardsContent,
+                                subtitle: e.target.value
+                            })
+                        }
+                    />
+
+                    <button
+                        className="save-btn"
+                        onClick={saveAwardsContent}
+                    >
+                        Save Awards Content
+                    </button>
+
+                </div>
+                <div className="cms-card">
+
+                    <h2>Awards Logos</h2>
+
+                    <div className="hero-grid">
+
+                        {awardsImages.map((item, index) => (
+
+                            <div className="hero-item" key={index}>
+
+                                <div className="hero-preview">
+
+                                    {item.preview ? (
+
+                                        <img src={item.preview} alt="" />
+
+                                    ) : (
+
+                                        <div className="placeholder">
+
+                                            No Image
+
+                                        </div>
+
+                                    )}
+
+                                </div>
+
+                                <label>
+
+                                    Award Logo {index + 1}
+
+                                </label>
+
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={(e) =>
+                                        awardsImageChange(index, e.target.files[0])
+                                    }
+                                />
+
+                                <input
+                                    type="text"
+                                    placeholder="Alt Text"
+                                    value={item.alt}
+                                    onChange={(e) =>
+                                        awardsAltChange(index, e.target.value)
+                                    }
+                                />
+
+                            </div>
+
+                        ))}
+
+                    </div>
+
+                    <button
+                        className="save-btn"
+                        onClick={saveAwards}
+                    >
+                        Save Awards
+                    </button>
+
+                </div>
+                <div className="cms-card">
+
+    <h2>Real Experiences Content</h2>
+
+    <label>Title</label>
+
+    <input
+        type="text"
+        value={realContent.title}
+        onChange={(e) =>
+            setRealContent({
+                ...realContent,
+                title: e.target.value
+            })
+        }
+    />
+
+    <label>Subtitle</label>
+
+    <textarea
+        rows="3"
+        value={realContent.subtitle}
+        onChange={(e) =>
+            setRealContent({
+                ...realContent,
+                subtitle: e.target.value
+            })
+        }
+    />
+
+    <label>Description</label>
+
+    <textarea
+        rows="5"
+        value={realContent.description}
+        onChange={(e) =>
+            setRealContent({
+                ...realContent,
+                description: e.target.value
+            })
+        }
+    />
+
+    <label>Rating Title</label>
+
+    <input
+        type="text"
+        value={realContent.ratingTitle}
+        onChange={(e) =>
+            setRealContent({
+                ...realContent,
+                ratingTitle: e.target.value
+            })
+        }
+    />
+
+    <label>Trustpilot Title</label>
+
+    <input
+        type="text"
+        value={realContent.trustpilotTitle}
+        onChange={(e) =>
+            setRealContent({
+                ...realContent,
+                trustpilotTitle: e.target.value
+            })
+        }
+    />
+
+    <button
+        className="save-btn"
+        onClick={saveRealContent}
+    >
+        Save Real Content
+    </button>
+
+</div>
                 <div className="cms-card">
 
                     <h2>
@@ -1457,11 +2100,11 @@ const saveMagic = async () => {
 
                         {
 
-                        loading.review
-?
-"Saving..."
-:
-"Save Reviews"
+                            loading.review
+                                ?
+                                "Saving..."
+                                :
+                                "Save Reviews"
 
                         }
 
@@ -1470,91 +2113,91 @@ const saveMagic = async () => {
                 </div>
                 <div className="cms-card">
 
-    <h2>
+                    <h2>
 
-        Magic Video
+                        Magic Video
 
-    </h2>
+                    </h2>
 
-    <div className="hero-item">
+                    <div className="hero-item">
 
-        <div className="hero-preview">
+                        <div className="hero-preview">
 
-            {
+                            {
 
-                magicVideo.preview
+                                magicVideo.preview
 
-                ?
+                                    ?
 
-                <video
+                                    <video
 
-                    src={magicVideo.preview}
+                                        src={magicVideo.preview}
 
-                    controls
+                                        controls
 
-                    style={{
+                                        style={{
 
-                        width: "100%",
+                                            width: "100%",
 
-                        borderRadius: "10px"
+                                            borderRadius: "10px"
 
-                    }}
+                                        }}
 
-                />
+                                    />
 
-                :
+                                    :
 
-                <div className="placeholder">
+                                    <div className="placeholder">
 
-                    No Video
+                                        No Video
+
+                                    </div>
+
+                            }
+
+                        </div>
+
+                        <input
+
+                            type="file"
+
+                            accept="video/*"
+
+                            onChange={(e) =>
+
+                                magicVideoChange(
+
+                                    e.target.files[0]
+
+                                )
+
+                            }
+
+                        />
+
+                    </div>
+
+                    <button
+
+                        className="save-btn"
+
+                        onClick={saveMagic}
+
+                    >
+
+                        {
+
+                            loading.magic
+                                ?
+                                "Saving..."
+                                :
+                                "Save Magic Video"
+
+                        }
+
+                    </button>
 
                 </div>
-
-            }
-
-        </div>
-
-        <input
-
-            type="file"
-
-            accept="video/*"
-
-            onChange={(e)=>
-
-                magicVideoChange(
-
-                    e.target.files[0]
-
-                )
-
-            }
-
-        />
-
-    </div>
-
-    <button
-
-        className="save-btn"
-
-        onClick={saveMagic}
-
-    >
-
-        {
-
-            loading.magic
-?
-"Saving..."
-:
-"Save Magic Video"
-
-        }
-
-    </button>
-
-</div>
             </div>
 
         </DashboardLayout>

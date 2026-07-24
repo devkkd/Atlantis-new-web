@@ -195,3 +195,81 @@
     }
 
 }
+/* ===========================
+   FORM FIELDS
+=========================== */
+
+.cms-card label{
+
+    display:block;
+
+    margin:18px 0 8px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#444;
+
+}
+
+.cms-card input[type="text"],
+
+.cms-card textarea{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid #DDD;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-family:inherit;
+
+    outline:none;
+
+    transition:.3s;
+
+    resize:vertical;
+
+    background:#fff;
+
+    box-sizing:border-box;
+
+}
+
+.cms-card textarea{
+
+    min-height:120px;
+
+}
+
+.cms-card input[type="text"]:focus,
+
+.cms-card textarea:focus{
+
+    border-color:#B8860B;
+
+    box-shadow:0 0 0 3px rgba(184,134,11,.12);
+
+}
+/* ===========================
+   FORM SPACING
+=========================== */
+
+.cms-card input + label,
+.cms-card textarea + label {
+    margin-top: 20px;
+}
+
+.cms-card input[type="text"],
+.cms-card textarea {
+    margin-bottom: 12px;
+}
+
+.cms-card .save-btn {
+    margin-top: 24px;
+}

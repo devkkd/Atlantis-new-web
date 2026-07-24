@@ -86,59 +86,55 @@ if (!data.success) return;
 
 const gallery = data.gallery;
 
-        setSegmentData([
+       setSegmentData([
+    {
+        heading: gallery.galleryContent?.grandHall?.heading || "THE GRAND HALL",
+        tagline:
+            gallery.galleryContent?.grandHall?.tagline ||
+            "A Regal Setting for Timeless Celebrations.",
+        images: gallery.grandHall || []
+    },
 
-            {
+    {
+        heading:
+            gallery.galleryContent?.preFunction?.heading ||
+            "THE PRE-FUNCTION HALL",
+        tagline:
+            gallery.galleryContent?.preFunction?.tagline ||
+            "Where Prestige Meets Professional Excellence.",
+        images: gallery.preFunction || []
+    },
 
-                heading: "THE GRAND HALL",
+    {
+        heading:
+            gallery.galleryContent?.diningHall?.heading ||
+            "DINING HALL",
+        tagline:
+            gallery.galleryContent?.diningHall?.tagline ||
+            "Intimate Affairs in a Class of Their Own.",
+        images: gallery.diningHall || []
+    },
 
-                tagline: "A Regal Setting for Timeless Celebrations.",
+    {
+        heading:
+            gallery.galleryContent?.dressingSuite?.heading ||
+            "THE DRESSING SUITE",
+        tagline:
+            gallery.galleryContent?.dressingSuite?.tagline ||
+            "Stay in Serenity, Rest in Royalty.",
+        images: gallery.dressingSuite || []
+    },
 
-                images: gallery.grandHall || []
-
-            },
-
-            {
-
-                heading: "THE PRE-FUNCTION HALL",
-
-                tagline: "Where Prestige Meets Professional Excellence.",
-
-                images: gallery.preFunction || []
-
-            },
-
-            {
-
-                heading: "DINING HALL",
-
-                tagline: "Intimate Affairs in a Class of Their Own.",
-
-                images: gallery.diningHall || []
-
-            },
-
-            {
-
-                heading: "THE DRESSING SUITE",
-
-                tagline: "Stay in Serenity, Rest in Royalty.",
-
-                images: gallery.dressingSuite || []
-
-            },
-
-            {
-
-                heading: "PROPERTY INSIGHTS",
-
-                tagline: "A Grand Welcome Begins with Seamless Arrival.",
-
-                images: gallery.propertyInsights || []
-
-            }
-
-        ]);
+    {
+        heading:
+            gallery.galleryContent?.propertyInsights?.heading ||
+            "PROPERTY INSIGHTS",
+        tagline:
+            gallery.galleryContent?.propertyInsights?.tagline ||
+            "A Grand Welcome Begins with Seamless Arrival.",
+        images: gallery.propertyInsights || []
+    }
+]);
 
     }
 

@@ -11,31 +11,31 @@ import {
     updateWedding,
 
     updateBusiness,
+    updateAwards,
 
     updateReview,
 
     updateMagic,
 
-    updateAtlantiis
+    updateAtlantiis,
+
+   updateCelebration,
+updateWeddingContent,
+updateBusinessContent,
+updateAwardsContent,
+updateRealContent,
 
 } from "../controllers/homeController.js";
 
 import {
-
     heroUpload,
-
     venueUpload,
-
     weddingUpload,
-
     businessUpload,
-
+    awardsUpload,
     magicUpload,
-
     atlantiisUpload,
-
     noneUpload
-
 } from "../middleware/upload.js";
 
 const router = express.Router();
@@ -107,6 +107,19 @@ router.put(
 
 );
 /* ===========================
+   AWARDS SECTION
+=========================== */
+
+router.put(
+
+    "/awards",
+
+    awardsUpload,
+
+    updateAwards
+
+);
+/* ===========================
    REVIEW SECTION
 =========================== */
 
@@ -137,5 +150,37 @@ router.put(
     atlantiisUpload,
     updateAtlantiis
 );
+router.put(
 
+    "/celebration",
+
+    noneUpload,
+
+    updateCelebration
+
+);
+router.put(
+
+    "/wedding-content",
+
+    noneUpload,
+
+    updateWeddingContent
+
+);
+router.put("/business-content", noneUpload, updateBusinessContent);
+router.put(
+    "/awards-content",
+    noneUpload,
+    updateAwardsContent
+);
+router.put(
+
+    "/real-content",
+
+    noneUpload,
+
+    updateRealContent
+
+);
 export default router;

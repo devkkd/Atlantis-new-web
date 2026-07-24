@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout";
 
 const cards = [
+    {
+    title: "Header",
+    desc: "Manage website header, logo and navigation.",
+    path: "/admin/header"
+},
 
     {
         title: "Home",
@@ -33,12 +38,28 @@ const cards = [
         desc: "Update contact page content.",
         path: "/admin/contact"
     },
+    {
+    title: "Contact Form",
+    desc: "Manage contact form headings, labels, placeholders and event types.",
+    path: "/admin/contact-form"
+},
 
     {
         title: "Messages",
         desc: "View and manage customer inquiries.",
         path: "/admin/messages"
     },
+    {
+    title: "Blog ",
+    desc: "Manage blog page banner image. and Blogs all ",
+    path: "/admin/blog-landing"
+},
+    {
+    title: "Footer",
+    desc: "Manage website footer, links and social media.",
+    path: "/admin/footer"
+},
+
 
    
 

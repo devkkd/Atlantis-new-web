@@ -237,3 +237,37 @@
     }
 
 }
+.cms-card + .cms-card{
+    margin-top:30px;
+}
+
+.cms-card label{
+    display:block;
+    font-size:14px;
+    color:#555;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.cms-card input[type="text"],
+.cms-card textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #DDD;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+    margin-bottom:20px;
+    transition:.3s;
+    box-sizing:border-box;
+}
+
+.cms-card input[type="text"]:focus,
+.cms-card textarea:focus{
+    border-color:#B8860B;
+}
+
+.cms-card textarea{
+    min-height:180px;
+    resize:vertical;
+}

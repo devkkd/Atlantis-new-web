@@ -8,6 +8,10 @@ import Gallery from "./pages/Gallery";
 import Venue from "./pages/Venue";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import Header from "./pages/Header";
+import Footer from "./pages/Footer";
+import BlogLanding from "./pages/BlogLanding";
+import ContactFormCMS from "./pages/ContactFormCMS";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
 
@@ -81,7 +85,38 @@ export default function AdminApp() {
                     </ProtectedRoute>
                 }
             />
-
+            <Route
+    path="/contact-form"
+    element={
+        <ProtectedRoute>
+            <ContactFormCMS />
+        </ProtectedRoute>
+    }
+/>
+            <Route
+    path="/header"
+    element={
+        <ProtectedRoute>
+            <Header />
+        </ProtectedRoute>
+    }
+/>
+<Route
+    path="/footer"
+    element={
+        <ProtectedRoute>
+            <Footer />
+        </ProtectedRoute>
+    }
+/>
+<Route
+    path="/blog-landing"
+    element={
+        <ProtectedRoute>
+            <BlogLanding />
+        </ProtectedRoute>
+    }
+/>
             {/* Default */}
 
             <Route

@@ -509,3 +509,76 @@
     color:#888;
 
 }
+/* ===========================
+   Celebration CMS
+=========================== */
+
+.cms-card h2 {
+  margin-bottom: 24px;
+}
+
+.cms-card label {
+  display: block;
+  margin: 18px 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.cms-card input[type="text"],
+.cms-card textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 15px;
+  color: #222;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.cms-card input[type="text"]:focus,
+.cms-card textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.cms-card textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.7;
+}
+
+.cms-card .save-btn {
+  margin-top: 24px;
+}
+
+.cms-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #ececec;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .cms-card {
+    padding: 18px;
+  }
+
+  .cms-card h2 {
+    font-size: 22px;
+  }
+
+  .cms-card input[type="text"],
+  .cms-card textarea {
+    font-size: 14px;
+  }
+
+  .cms-card .save-btn {
+    width: 100%;
+  }
+}

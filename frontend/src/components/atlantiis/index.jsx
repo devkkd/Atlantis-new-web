@@ -4,12 +4,15 @@ import api from "../../admin/services/api";
 
 const Atlantiis = () => {
 
-    const [image, setImage] = useState("");
+    const [atlantiis, setAtlantiis] = useState({
+        title: "",
+        subtitle: "",
+        description: "",
+        image: ""
+    });
 
     useEffect(() => {
-
         getAtlantiis();
-
     }, []);
 
     const getAtlantiis = async () => {
@@ -20,17 +23,16 @@ const Atlantiis = () => {
 
             if (data.atlantiisSection) {
 
-                setImage(
-
-                    data.atlantiisSection.image || ""
-
-                );
+                setAtlantiis({
+                    title: data.atlantiisSection.title || "",
+                    subtitle: data.atlantiisSection.subtitle || "",
+                    description: data.atlantiisSection.description || "",
+                    image: data.atlantiisSection.image || ""
+                });
 
             }
 
-        }
-
-        catch (err) {
+        } catch (err) {
 
             console.log(err);
 
@@ -49,26 +51,17 @@ const Atlantiis = () => {
                     <div className="atlantiis-header-line"></div>
 
                     <h1 className="atlantiis-title atlantiis-title-spaced">
-
-                        ATLANTIIS
-
+                        {atlantiis.title}
                     </h1>
 
                 </div>
 
                 <h2 className="atlantiis-subtitle">
-
-                    ELEVATE YOUR BUSINESS EVENTS
-
+                    {atlantiis.subtitle}
                 </h2>
 
                 <p className="atlantiis-description">
-
-                    Host product launches, seminars, award nights, or team-building
-                    sessions in a grand yet professional setting. Equipped with
-                    projector systems, soundproofing, and customized layouts, we
-                    redefine corporate hosting.
-
+                    {atlantiis.description}
                 </p>
 
             </section>
@@ -77,61 +70,41 @@ const Atlantiis = () => {
 
                 {
 
-                    image
+                    atlantiis.image
 
-                    ?
+                        ?
 
-                    <>
+                        <>
 
-                        <img
+                            <img
+                                src={atlantiis.image}
+                                alt={atlantiis.title || "Luxury banquet hall Jaipur"}
+                                className="atlantiis-landing-img atlantiis-desktop-img"
+                            />
 
-                            src={image}
+                            <img
+                                src={atlantiis.image}
+                                alt={atlantiis.title || "Luxury banquet hall Jaipur"}
+                                className="atlantiis-landing-img atlantiis-mobile-img"
+                            />
 
-                            alt="Luxury banquet hall Jaipur"
+                        </>
 
-                            className="atlantiis-landing-img atlantiis-desktop-img"
+                        :
 
-                        />
-
-                        <img
-
-                            src={image}
-
-                            alt="Luxury banquet hall Jaipur"
-
-                            className="atlantiis-landing-img atlantiis-mobile-img"
-
-                        />
-
-                    </>
-
-                    :
-
-                    <div
-
-                        style={{
-
-                            width: "100%",
-
-                            height: "450px",
-
-                            display: "flex",
-
-                            alignItems: "center",
-
-                            justifyContent: "center",
-
-                            fontSize: "18px",
-
-                            color: "#777"
-
-                        }}
-
-                    >
-
-                        Loading...
-
-                    </div>
+                        <div
+                            style={{
+                                width: "100%",
+                                height: "450px",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                fontSize: "18px",
+                                color: "#777"
+                            }}
+                        >
+                            Loading...
+                        </div>
 
                 }
 

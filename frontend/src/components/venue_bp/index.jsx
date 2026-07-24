@@ -1,32 +1,78 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import "./index.css";
+import api from "../../admin/services/api";
 
-const VenueBP = () => (
-  <>
-    <div className="venuebp-title-row">
-      <span className="venuebp-line" />
-      <h1 className="venuebp-title">OUR GRAND VENUE</h1>
-      <span className="venuebp-line-r" />
-    </div>
-    <div className="venuebp-container">
-      {/* <div className="venuebp-title-row">
-      <span className="venuebp-line" />
-      <h1 className="venuebp-title">OUR GRAND VENUE</h1>
-      <span className="venuebp-line-r" />
-    </div> */}
-      <h2 className="venuebp-subtitle">
-        A Royal Setting for Unforgettable Celebrations
-      </h2>
-      <p className="venuebp-description">
-        Step into a world of elegance and sophistication at atlantiis jaipur. A
-        premier luxury banquet hall in jaipur. Designed to host weddings,
-        receptions, corporate events and social gatherings, our versatile spaces
-        blend modern comfort with regal charm. From the opulent banquet hall to
-        the beautifully landscaped outdoor areas, every corner is crafted to
-        elevate your event experience.
-      </p>
-    </div>
-  </>
-);
+const VenueBP = () => {
+
+  const [loading, setLoading] = useState(true);
+
+  const [venue, setVenue] = useState({
+    title: "",
+    subtitle: "",
+    description: ""
+  });
+
+  useEffect(() => {
+    getVenue();
+  }, []);
+
+  const getVenue = async () => {
+    try {
+      const { data } = await api.get("/venue");
+
+      if (data.venue) {
+        setVenue({
+          title: data.venue.title || "",
+          subtitle: data.venue.subtitle || "",
+          description: data.venue.description || ""
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <>
+      <div className="venuebp-title-row">
+        <span className="venuebp-line" />
+
+        <h1 className="venuebp-title">
+          {loading ? (
+            <Skeleton width={260} />
+          ) : (
+            venue.title
+          )}
+        </h1>
+
+        <span className="venuebp-line-r" />
+      </div>
+
+      <div className="venuebp-container">
+
+        <h2 className="venuebp-subtitle">
+          {loading ? (
+            <Skeleton width={420} />
+          ) : (
+            venue.subtitle
+          )}
+        </h2>
+
+        <p className="venuebp-description">
+          {loading ? (
+            <Skeleton count={5} />
+          ) : (
+            venue.description
+          )}
+        </p>
+
+      </div>
+    </>
+  );
+};
 
 export default VenueBP;

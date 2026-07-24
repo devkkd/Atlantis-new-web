@@ -169,6 +169,15 @@ const WeddingSection = () => {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const [weddingCards, setWeddingCards] = useState([]);
+  const [weddingContent, setWeddingContent] = useState({
+
+    title: "",
+
+    subtitle: "",
+
+    description: ""
+
+});
   useEffect(() => {
 
     getWeddingSection();
@@ -186,6 +195,15 @@ const getWeddingSection = async () => {
             setWeddingCards(data.weddingSection);
 
         }
+        setWeddingContent({
+
+    title: data.weddingContent?.title || "",
+
+    subtitle: data.weddingContent?.subtitle || "",
+
+    description: data.weddingContent?.description || ""
+
+});
 
     }
 
@@ -205,7 +223,9 @@ if (!weddingCards.length) {
     <section className="wedding-section">
       <div className="wedding-header-row">
         <div className="wedding-header-line"></div>
-        <h1 className="wedding-title">WEDDINGS AT ATLANTIIS</h1>
+       <h1 className="wedding-title">
+    {weddingContent.title}
+</h1>
         <button
           className="wedding-cta"
           onClick={() => navigate("/contact#get-in-touch")}
@@ -213,16 +233,12 @@ if (!weddingCards.length) {
           BOOK YOUR EVENT
         </button>
       </div>
-      <h2 className="wedding-subtitle">
-        WHERE EVERY LOVE STORY MEETS ROYAL ELEGANCE
-      </h2>
-      <p className="wedding-description">
-        Celebrate your big day in a stunning wedding venue in jaipur with
-        timeless memories. At atlantiis Jaipur,our grand ambiance and luxurious
-        decor reflects your story. Customize your wedding destination into a
-        magical reality. Whether it's an intimate wedding celebration or a
-        lavish affair we make your day radiant with grace and splendor.
-      </p>
+     <h2 className="wedding-subtitle">
+    {weddingContent.subtitle}
+</h2>
+     <p className="wedding-description">
+    {weddingContent.description}
+</p>
       {isMobile ? (
         <AutoManualWeddingSlider cards={weddingCards} />
       ) : (

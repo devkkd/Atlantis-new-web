@@ -1,0 +1,231 @@
+.contact-cms {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px 40px;
+}
+
+.contact-cms h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 30px;
+}
+
+.cms-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.cms-card h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 22px;
+}
+
+.cms-card input,
+.cms-card textarea {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    background: #fff;
+    transition: .3s;
+    box-sizing: border-box;
+}
+
+.cms-card textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.cms-card input:focus,
+.cms-card textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+
+.event-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 16px;
+}
+
+.event-row input {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.event-row button {
+    background: #ef4444;
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: .3s;
+    white-space: nowrap;
+}
+
+.event-row button:hover {
+    background: #dc2626;
+}
+
+.cms-card > button[type="button"] {
+    margin-top: 10px;
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.cms-card > button[type="button"]:hover {
+    background: #059669;
+}
+
+.save-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 15px 34px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.save-btn:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.save-btn:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+@media (max-width:992px){
+
+    .contact-cms{
+        padding:20px;
+    }
+
+    .cms-card{
+        padding:22px;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .contact-cms h1{
+        font-size:28px;
+    }
+
+    .cms-card h2{
+        font-size:20px;
+    }
+
+    .event-row{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .event-row button{
+        width:100%;
+    }
+
+    .save-btn{
+        width:100%;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .contact-cms{
+        padding:15px;
+    }
+
+    .cms-card{
+        padding:18px;
+        border-radius:10px;
+    }
+
+    .cms-card input,
+    .cms-card textarea{
+        font-size:14px;
+        padding:12px;
+    }
+
+    .contact-cms h1{
+        font-size:24px;
+    }
+
+}
+/* Main Heading */
+.contact-cms h1{
+    color:#111827;
+}
+
+/* Card Heading */
+.cms-card h2{
+    color:#111827;
+}
+
+/* Labels */
+.cms-card label{
+    display:block;
+    margin-bottom:8px;
+    margin-top:16px;
+    font-size:14px;
+    font-weight:600;
+    color:#374151;
+}
+
+/* Input & Textarea Text */
+.cms-card input,
+.cms-card textarea{
+    color:#111827;
+}
+
+/* Placeholder Color */
+.cms-card input::placeholder,
+.cms-card textarea::placeholder{
+    color:#9CA3AF;
+    opacity:1;
+}
+
+/* Focus Text */
+.cms-card input:focus,
+.cms-card textarea:focus{
+    color:#111827;
+}
+
+/* Buttons */
+.save-btn{
+    color:#ffffff;
+}
+
+.cms-card > button[type="button"]{
+    color:#ffffff;
+}
+
+.event-row button{
+    color:#ffffff;
+}
