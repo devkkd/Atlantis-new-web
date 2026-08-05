@@ -279,79 +279,79 @@ export default function Footer() {
                 </div>
 
                 <div className="cms-card">
-                   <h2>Footer Content</h2>
+                    <h2>Footer Content</h2>
 
-<label>Home</label>
-<input
-    type="text"
-    value={home}
-    onChange={(e) => setHome(e.target.value)}
-/>
+                    <label>Home</label>
+                    <input
+                        type="text"
+                        value={home}
+                        onChange={(e) => setHome(e.target.value)}
+                    />
 
-<label>Venue</label>
-<input
-    type="text"
-    value={venue}
-    onChange={(e) => setVenue(e.target.value)}
-/>
+                    <label>Venue</label>
+                    <input
+                        type="text"
+                        value={venue}
+                        onChange={(e) => setVenue(e.target.value)}
+                    />
 
-<label>Services</label>
-<input
-    type="text"
-    value={services}
-    onChange={(e) => setServices(e.target.value)}
-/>
+                    <label>Services</label>
+                    <input
+                        type="text"
+                        value={services}
+                        onChange={(e) => setServices(e.target.value)}
+                    />
 
-<label>Gallery</label>
-<input
-    type="text"
-    value={gallery}
-    onChange={(e) => setGallery(e.target.value)}
-/>
+                    <label>Gallery</label>
+                    <input
+                        type="text"
+                        value={gallery}
+                        onChange={(e) => setGallery(e.target.value)}
+                    />
 
-<label>Blog</label>
-<input
-    type="text"
-    value={blog}
-    onChange={(e) => setBlog(e.target.value)}
-/>
+                    <label>Blog</label>
+                    <input
+                        type="text"
+                        value={blog}
+                        onChange={(e) => setBlog(e.target.value)}
+                    />
 
-<label>Description</label>
-<textarea
-    rows={5}
-    value={description}
-    onChange={(e) => setDescription(e.target.value)}
-/>
+                    <label>Description</label>
+                    <textarea
+                        rows={5}
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
 
-<label>Address</label>
-<textarea
-    rows={5}
-    value={address}
-    onChange={(e) => setAddress(e.target.value)}
-/>
+                    <label>Address</label>
+                    <textarea
+                        rows={5}
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                    />
 
-<label>Phone</label>
-<input
-    type="text"
-    value={phone}
-    onChange={(e) => setPhone(e.target.value)}
-/>
+                    <label>Phone</label>
+                    <input
+                        type="text"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                    />
 
-<label>Email</label>
-<input
-    type="text"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-/>
+                    <label>Email</label>
+                    <input
+                        type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
 
-<label>Copyright</label>
-<input
-    type="text"
-    value={copyright}
-    onChange={(e) => setCopyright(e.target.value)}
-/>
+                    <label>Copyright</label>
+                    <input
+                        type="text"
+                        value={copyright}
+                        onChange={(e) => setCopyright(e.target.value)}
+                    />
 
-{/* <label>Powered By</label>
+                     <label>Powered By</label>
 <input
     type="text"
     value={poweredBy}
@@ -363,61 +363,61 @@ export default function Footer() {
     type="text"
     value={poweredByLink}
     onChange={(e) => setPoweredByLink(e.target.value)}
-/> */}
+/> 
 
-<label>Facebook</label>
-<input
-    type="text"
-    value={facebook}
-    onChange={(e) => setFacebook(e.target.value)}
-/>
+                    <label>Facebook</label>
+                    <input
+                        type="text"
+                        value={facebook}
+                        onChange={(e) => setFacebook(e.target.value)}
+                    />
 
-<label>Instagram</label>
-<input
-    type="text"
-    value={instagram}
-    onChange={(e) => setInstagram(e.target.value)}
-/>
+                    <label>Instagram</label>
+                    <input
+                        type="text"
+                        value={instagram}
+                        onChange={(e) => setInstagram(e.target.value)}
+                    />
 
-<label>Youtube</label>
-<input
-    type="text"
-    value={youtube}
-    onChange={(e) => setYoutube(e.target.value)}
-/>
+                    <label>Youtube</label>
+                    <input
+                        type="text"
+                        value={youtube}
+                        onChange={(e) => setYoutube(e.target.value)}
+                    />
 
-<label>Pinterest</label>
-<input
-    type="text"
-    value={pinterest}
-    onChange={(e) => setPinterest(e.target.value)}
-/>
+                    <label>Pinterest</label>
+                    <input
+                        type="text"
+                        value={pinterest}
+                        onChange={(e) => setPinterest(e.target.value)}
+                    />
 
-<label>Bottom Text</label>
-<input
-    type="text"
-    value={bottomText}
-    onChange={(e) => setBottomText(e.target.value)}
-/>
+                    <label>Bottom Text</label>
+                    <input
+                        type="text"
+                        value={bottomText}
+                        onChange={(e) => setBottomText(e.target.value)}
+                    />
 
-<button
-    className="save-btn"
-    onClick={saveContent}
->
-    {
-        contentSaving
-            ? "Saving..."
-            : "Save Footer"
-    }
-</button>
+                    <button
+                        className="save-btn"
+                        onClick={saveContent}
+                    >
+                        {
+                            contentSaving
+                                ? "Saving..."
+                                : "Save Footer"
+                        }
+                    </button>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</DashboardLayout>
+        </DashboardLayout>
 
-);
+    );
 
 }
 
